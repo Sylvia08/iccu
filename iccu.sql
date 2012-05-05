@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.0.1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2012 at 06:32 PM
--- Server version: 5.1.37
--- PHP Version: 5.3.0
+-- Generation Time: May 05, 2012 at 07:08 AM
+-- Server version: 5.5.8
+-- PHP Version: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -254,6 +254,64 @@ CREATE TABLE IF NOT EXISTS `posts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `profiles`
+--
+
+CREATE TABLE IF NOT EXISTS `profiles` (
+  `user_id` int(11) NOT NULL,
+  `lastname` varchar(50) NOT NULL DEFAULT '',
+  `firstname` varchar(50) NOT NULL DEFAULT '',
+  `birthday` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `profiles`
+--
+
+INSERT INTO `profiles` (`user_id`, `lastname`, `firstname`, `birthday`) VALUES
+(1, 'Admin', 'Administrator', '0000-00-00'),
+(2, 'Demo', 'Demo', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profiles_fields`
+--
+
+CREATE TABLE IF NOT EXISTS `profiles_fields` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `varname` varchar(50) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `field_type` varchar(50) NOT NULL,
+  `field_size` int(3) NOT NULL DEFAULT '0',
+  `field_size_min` int(3) NOT NULL DEFAULT '0',
+  `required` int(1) NOT NULL DEFAULT '0',
+  `match` varchar(255) NOT NULL DEFAULT '',
+  `range` varchar(255) NOT NULL DEFAULT '',
+  `error_message` varchar(255) NOT NULL DEFAULT '',
+  `other_validator` varchar(5000) NOT NULL DEFAULT '',
+  `default` varchar(255) NOT NULL DEFAULT '',
+  `widget` varchar(255) NOT NULL DEFAULT '',
+  `widgetparams` varchar(5000) NOT NULL DEFAULT '',
+  `position` int(3) NOT NULL DEFAULT '0',
+  `visible` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `varname` (`varname`,`widget`,`visible`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `profiles_fields`
+--
+
+INSERT INTO `profiles_fields` (`id`, `varname`, `title`, `field_type`, `field_size`, `field_size_min`, `required`, `match`, `range`, `error_message`, `other_validator`, `default`, `widget`, `widgetparams`, `position`, `visible`) VALUES
+(1, 'lastname', 'Last Name', 'VARCHAR', 50, 3, 1, '', '', 'Incorrect Last Name (length between 3 and 50 characters).', '', '', '', '', 1, 3),
+(2, 'firstname', 'First Name', 'VARCHAR', 50, 3, 1, '', '', 'Incorrect First Name (length between 3 and 50 characters).', '', '', '', '', 0, 3),
+(3, 'birthday', 'Birthday', 'DATE', 0, 0, 2, '', '', '', '', '0000-00-00', 'UWjuidate', '{"ui-theme":"redmond"}', 3, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rights`
 --
 
@@ -335,54 +393,30 @@ CREATE TABLE IF NOT EXISTS `term_taxonomy` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usermeta`
---
-
-CREATE TABLE IF NOT EXISTS `usermeta` (
-  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `meta_key` varchar(255) DEFAULT NULL,
-  `meta_value` longtext,
-  PRIMARY KEY (`umeta_id`),
-  KEY `user_id` (`user_id`),
-  KEY `meta_key` (`meta_key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
---
--- Dumping data for table `usermeta`
---
-
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_login` varchar(60) NOT NULL DEFAULT '',
-  `user_pass` varchar(64) NOT NULL DEFAULT '',
-  `user_nicename` varchar(50) NOT NULL DEFAULT '',
-  `user_email` varchar(100) NOT NULL DEFAULT '',
-  `user_url` varchar(100) NOT NULL DEFAULT '',
-  `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `user_activation_key` varchar(60) NOT NULL DEFAULT '',
-  `user_status` int(11) NOT NULL DEFAULT '0',
-  `display_name` varchar(250) NOT NULL DEFAULT '',
-  `salt` varchar(250) NOT NULL DEFAULT '',
-  PRIMARY KEY (`ID`),
-  KEY `user_login_key` (`user_login`),
-  KEY `user_nicename` (`user_nicename`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `activkey` varchar(128) NOT NULL DEFAULT '',
+  `createtime` int(10) NOT NULL DEFAULT '0',
+  `lastvisit` int(10) NOT NULL DEFAULT '0',
+  `superuser` int(1) NOT NULL DEFAULT '0',
+  `status` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`),
+  KEY `status` (`status`),
+  KEY `superuser` (`superuser`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`, `salt`) VALUES
-(2, 'admin', '2e5c7db760a33498023813489cfadc0b', '', 'nghiaqh@gmail.com', '', '0000-00-00 00:00:00', '', 0, '', '28b206548469ce62182048fd9cf91760');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `activkey`, `createtime`, `lastvisit`, `superuser`, `status`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336192515, 1, 1),
+(2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 0, 0, 1);

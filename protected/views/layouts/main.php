@@ -18,21 +18,49 @@
 </head>
 
 <body>
-
+<?php 
+	$baseUrl = Utils::getBaseUrl();?>
 <div class="container" id="page">
-
 	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
+		<div id="logo"><img src="<?php echo $baseUrl?>/images/iccmulogo.png" />
+		<?php //echo CHtml::encode(Yii::app()->name); ?>
+	<div id="cse-search-form" style="width: 25%;float:right">Loading</div>
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<script type="text/javascript"> 
+		  google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});
+		  google.setOnLoadCallback(function() {
+		    var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+		      '012787590946701049736:vcv2njp2nie', customSearchOptions);
+		    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+		    var options = new google.search.DrawOptions();
+		    options.enableSearchboxOnly("http://localhost/iccmu/site/searchresult");
+		    customSearchControl.draw('cse-search-form', options);
+		  }, true);
+		</script>
+			<div id="topmenu">
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'items'=>array(
+					    array('url'=>Yii::app()->getModule('user')->loginUrl, 'label'=>Yii::app()->getModule('user')->t("Login"), 'visible'=>Yii::app()->user->isGuest),
+					    array('url'=>Yii::app()->getModule('user')->registrationUrl, 'label'=>Yii::app()->getModule('user')->t("Register"), 'visible'=>Yii::app()->user->isGuest),
+					    array('url'=>Yii::app()->getModule('user')->profileUrl, 'label'=>Yii::app()->getModule('user')->t("Profile"), 'visible'=>!Yii::app()->user->isGuest),
+					    array('url'=>Yii::app()->getModule('user')->logoutUrl, 'label'=>Yii::app()->getModule('user')->t("Logout").' ('.Yii::app()->user->name.')', 'visible'=>!Yii::app()->user->isGuest),
+					  
+					    array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+						array('label'=>'Wiki', 'url'=>array('/site/contact')),
+						array('label'=>'Forum', 'url'=>array('/site/contact')),
+						array('label'=>'Contact Us', 'url'=>array('/site/contact'))
+					),
+				)); ?>
+			</div>
+		</div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'For Community', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'For Clinicians', 'url'=>array('/site/contact')),
 			),
 		)); ?>
 	</div><!-- mainmenu -->
@@ -47,9 +75,12 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		<div id="flogo" style="float:left;padding-left:15px;"> <img src="<?php echo $baseUrl?>/images/iccmulogo.png" style="margin-bottom:10px;"/>
+			<p>Copyright 2012 &copy ICCMU. <br/> All Rights Reserved.</p>
+		</div>
+		<div id="fcontent"> 
+			<p>Copyright 2012 &copy ICCMU. <br/> All Rights Reserved.</p>
+		</div>
 	</div><!-- footer -->
 
 </div><!-- page -->

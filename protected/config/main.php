@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Intensive Care Coordinator Unit',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -18,26 +18,30 @@ return array(
 		'application.components.*',
 		'application.modules.rights.*',
 		'application.modules.rights.components.*',
+        'application.modules.user.models.*',
+        'application.modules.user.components.*',
 	),
 
 	'modules'=>array(
 		'dashboard',
+	    'user',
 		'rights'=>array(
 			'install'=>false, // Enables the installer.
 			'superuserName'=>'Admin',
-			'userClass'=>'Users',
-			'userIdColumn'=>'ID',
-			'userNameColumn'=>'user_login',
 		),
+	    'cms'=>array(
+	    // this layout will be set by default if no layout set for page
+	    'defaultLayout'=>'cms', // this layout will be set by default if no layout set for page
+	    ),
 
-		// uncomment the following to enable the Gii tool
+	    // uncomment the following to enable the Gii tool
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123456',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-		),
 
+		),
 	),
 
 	// application components
@@ -46,15 +50,16 @@ return array(
 			'class'=>'RWebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+		    'loginUrl' => array('/user/login'),
 		),
-		'authManager'=>array(
+	    'authManager'=>array(
 			'class'=>'RDbAuthManager', // Provides support authorization item sorting.
-		 ),
+		),
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 #			'caseSensitive'=>false,
-#			'showScriptName'=>false,
+			'showScriptName'=>false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -67,11 +72,12 @@ return array(
 		),*/
 
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=iccu',
+			'connectionString' => 'mysql:host=localhost;dbname=iccmu',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '111111',
+			'password' => '',
 			'charset' => 'utf8',
+		    'tablePrefix'=>'',
 		),
 
 		'errorHandler'=>array(
