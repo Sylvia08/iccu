@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.2.0.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 05, 2012 at 07:08 AM
--- Server version: 5.5.8
--- PHP Version: 5.3.5
+-- Generation Time: May 05, 2012 at 04:15 PM
+-- Server version: 5.1.37
+-- PHP Version: 5.3.0
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `iccu`
+-- Database: `iccmu`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,9 @@ CREATE TABLE IF NOT EXISTS `authassignment` (
 --
 
 INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
-('Admin', 'admin', NULL, 'N;');
+('Admin', 'admin', NULL, 'N;'),
+('Admin', '1', NULL, 'N;'),
+('dashboard access', '1', NULL, 'N;');
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,13 @@ CREATE TABLE IF NOT EXISTS `authitem` (
 INSERT INTO `authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('Admin', 2, NULL, NULL, 'N;'),
 ('Authenticated', 2, NULL, NULL, 'N;'),
-('Guest', 2, NULL, NULL, 'N;');
+('Guest', 2, NULL, NULL, 'N;'),
+('dashboard access', 0, 'admin dashboard', NULL, 'N;'),
+('create post', 0, 'create new posts', NULL, 'N;'),
+('view post', 0, 'view post', NULL, 'N;'),
+('delete post', 0, 'delete post', NULL, 'N;'),
+('post management', 1, 'CRUD', NULL, 'N;'),
+('update post', 0, 'update', NULL, 'N;');
 
 -- --------------------------------------------------------
 
@@ -81,6 +89,11 @@ CREATE TABLE IF NOT EXISTS `authitemchild` (
 -- Dumping data for table `authitemchild`
 --
 
+INSERT INTO `authitemchild` (`parent`, `child`) VALUES
+('post management', 'create post'),
+('post management', 'delete post'),
+('post management', 'update post'),
+('post management', 'view post');
 
 -- --------------------------------------------------------
 
@@ -418,5 +431,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activkey`, `createtime`, `lastvisit`, `superuser`, `status`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336192515, 1, 1),
-(2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 0, 0, 1);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336198211, 1, 1),
+(2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 1336198162, 0, 1);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

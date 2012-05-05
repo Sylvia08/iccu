@@ -29,10 +29,6 @@ return array(
 			'install'=>false, // Enables the installer.
 			'superuserName'=>'Admin',
 		),
-	    'cms'=>array(
-	    // this layout will be set by default if no layout set for page
-	    'defaultLayout'=>'cms', // this layout will be set by default if no layout set for page
-	    ),
 
 	    // uncomment the following to enable the Gii tool
 		'gii'=>array(
