@@ -2,7 +2,14 @@
 
 class DefaultController extends Controller
 {
-	
+    public $layout='//layouts/admin';
+    /**
+     * @return array action filters
+     */
+    public function filters()
+    {
+        return array('rights');
+    }
 	/**
 	 * Lists all models.
 	 */

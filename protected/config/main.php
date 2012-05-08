@@ -7,10 +7,13 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Intensive Care Coordinator Unit',
+	'name'=>'Intensive Care Coordinator & Monitoring Unit',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array(
+	    'log',
+        'bootstrap'
+	),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -20,14 +23,20 @@ return array(
 		'application.modules.rights.components.*',
         'application.modules.user.models.*',
         'application.modules.user.components.*',
+	    'application.extensions.CAdvancedArBehavior',
 	),
 
 	'modules'=>array(
 		'dashboard',
-	    'user',
+	    'user'=>array(
+            'tableUsers' => 'users',
+            'tableProfiles' => 'profiles',
+            'tableProfileFields' => 'profiles_fields',
+        ),
 		'rights'=>array(
 			'install'=>false, // Enables the installer.
 			'superuserName'=>'Admin',
+		    'appLayout'=>'application.views.layouts.admin'
 		),
 
 	    // uncomment the following to enable the Gii tool
@@ -36,7 +45,9 @@ return array(
 			'password'=>'123456',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
-
+            'generatorPaths'=>array(
+    		    'bootstrap.gii', // since 0.9.1
+    		),
 		),
 	),
 
@@ -48,10 +59,11 @@ return array(
 			'allowAutoLogin'=>true,
 		    'loginUrl' => array('/user/login'),
 		),
+	    
 	    'authManager'=>array(
 			'class'=>'RDbAuthManager', // Provides support authorization item sorting.
 		),
-
+        
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 #			'caseSensitive'=>false,
@@ -71,7 +83,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=iccmu',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => '111111',
 			'charset' => 'utf8',
 		    'tablePrefix'=>'',
 		),
@@ -95,6 +107,11 @@ return array(
 				*/
 			),
 		),
+	  
+   	    'bootstrap'=>array(
+    	    'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
+   	        'responsiveCss'=>true,
+   	    ),
 	),
 
 	// application-level parameters that can be accessed

@@ -1,45 +1,29 @@
 <?php
 $this->breadcrumbs=array(
-	'Posts'=>array('index'),
+	'Posts'=>array('admin'),
 	$model->ID,
 );
 
 $this->menu=array(
-	array('label'=>'List Posts', 'url'=>array('index')),
-	array('label'=>'Create Posts', 'url'=>array('create')),
-	array('label'=>'Update Posts', 'url'=>array('update', 'id'=>$model->ID)),
-	array('label'=>'Delete Posts', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ID),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Posts', 'url'=>array('admin')),
+    array('label'=>'OPERATIONS'),
+    array('label'=>'Manage Posts', 'icon'=>'th-list', 'url'=>array('admin')),
+    array('label'=>'Create Post', 'icon'=>'file', 'url'=>array('create')),
+    array('label'=>''),
+    array('label'=>'Update This Post', 'icon'=>'pencil', 'url'=>array('update', 'id'=>$model->ID)),
+    array('label'=>'Delete This Post', 'icon'=>'trash', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ID),'confirm'=>'Are you sure you want to delete this item?')),
 );
 ?>
 
-<h1>View Posts #<?php echo $model->ID; ?></h1>
+<h2><?php echo $model->post_title; ?></h2>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php $this->widget('bootstrap.widgets.BootDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'ID',
-		'post_author',
-		'post_date',
-		'post_date_gmt',
-		'post_content',
-		'post_title',
+		array('name'=>'post_author', 'label'=>'Author', 'value'=>User::model()->findByPk($model->post_author)->username),
+		array('name'=>'taxonomies', 'label'=>'Category', 'value'=>$model->taxonomies[0]->taxonomy),
 		'post_excerpt',
+		array('name'=>'post_content','type'=>'raw'),
 		'post_status',
-		'comment_status',
-		'ping_status',
-		'post_password',
-		'post_name',
-		'to_ping',
-		'pinged',
-		'post_modified',
-		'post_modified_gmt',
-		'post_content_filtered',
-		'post_parent',
-		'guid',
-		'menu_order',
-		'post_type',
-		'post_mime_type',
-		'comment_count',
+		'post_date',
 	),
 )); ?>

@@ -13,6 +13,7 @@
  */
 class TermTaxonomy extends CActiveRecord
 {
+    private static $_items=array();
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -30,7 +31,12 @@ class TermTaxonomy extends CActiveRecord
 	{
 		return 'term_taxonomy';
 	}
-
+    
+	public function allowedActions()
+	{
+	    return '*'; 
+	}
+	
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -39,8 +45,8 @@ class TermTaxonomy extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('description', 'required'),
-			array('term_id, parent, count', 'length', 'max'=>20),
+			array('taxonomy', 'required'),
+		    array('description', 'safe'),
 			array('taxonomy', 'length', 'max'=>32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -56,6 +62,9 @@ class TermTaxonomy extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		    'terms'=>array(self::BELONGS_TO, 'Terms', 'term_id'),
+		    'parent'=>array(self::BELONGS_TO, 'TermTaxonomy', 'parent'), 
+		    'posts'=>array(self::MANY_MANY, 'Posts', 'term_relationships(object_id, term_taxonomy_id)')
 		);
 	}
 
@@ -94,6 +103,31 @@ class TermTaxonomy extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+		    'sort'=>array('defaultOrder' => 'term_taxonomy_id DESC')
 		));
 	}
+	
+	/**
+	 * Returns the items for the specified type.
+	 * @param string item type (e.g. 'category', 'post').
+	 * @return array item names indexed by item code. The items are order by their position values.
+	 * An empty array is returned if the item type does not exist.
+	 */
+	public static function items($type)
+	{
+    	self::$_items = array();
+    	$models=self::model()->with(array(
+    	    'terms'=>array(
+    	        // we don't want to select terms
+        	    'select'=>false,
+        	    // but want to get only taxonomies are category
+        	    'joinType'=>'INNER JOIN',
+        	    'condition'=>'terms.name="'.$type.'"',
+    	    ),
+    	))->findAll();
+    	foreach($models as $model)
+    	    self::$_items[$model->term_taxonomy_id]=$model->taxonomy;
+    	return self::$_items;
+	}
+	
 }

@@ -3,18 +3,21 @@ $this->breadcrumbs=array(
 	UserModule::t('Users')=>array('admin'),
 	$model->username,
 );
+
+$this->menu=array(
+    array('label'=>'USERS'),
+    array('label'=>'Manage Users', 'icon'=>'th-list', 'url'=>array('admin')),
+    array('label'=>'Create User', 'icon'=>'file', 'url'=>array('create')),
+    array('label'=>''),
+    array('label'=>'Update this User', 'icon'=>'pencil', 'url'=>array('update', 'id'=>$model->id)),
+    array('label'=>'Delete this User', 'icon'=>'trash', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+    array('label'=>'PROFILE FIELDS'),
+    array('label'=>'Profile Field Manager', 'icon'=>'cog', 'url'=>array('profileField/admin')),
+);
 ?>
-<h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
+<h2><?php echo UserModule::t('User').' "'.$model->username.'"'; ?></h2>
 
-<?php echo $this->renderPartial('_menu', array(
-		'list'=> array(
-			CHtml::link(UserModule::t('Create User'),array('create')),
-			CHtml::link(UserModule::t('Update User'),array('update','id'=>$model->id)),
-			CHtml::linkButton(UserModule::t('Delete User'),array('submit'=>array('delete','id'=>$model->id),'confirm'=>UserModule::t('Are you sure to delete this item?'))),
-		),
-	)); 
-
-
+<?php
 	$attributes = array(
 		'id',
 		'username',
@@ -33,7 +36,6 @@ $this->breadcrumbs=array(
 	}
 	
 	array_push($attributes,
-		'password',
 		'email',
 		'activkey',
 		array(
@@ -54,7 +56,7 @@ $this->breadcrumbs=array(
 		)
 	);
 	
-	$this->widget('zii.widgets.CDetailView', array(
+	$this->widget('bootstrap.widgets.BootDetailView', array(
 		'data'=>$model,
 		'attributes'=>$attributes,
 	));

@@ -3,17 +3,19 @@ $this->breadcrumbs=array(
 	UserModule::t('Users')=>array('admin'),
 	UserModule::t('Manage'),
 );
-?>
-<h1><?php echo UserModule::t("Manage Users"); ?></h1>
 
-<?php echo $this->renderPartial('_menu', array(
-		'list'=> array(
-			CHtml::link(UserModule::t('Create User'),array('create')),
-		),
-	));
+$this->menu=array(
+    array('label'=>'USERS'),
+    array('label'=>'Manage Users', 'icon'=>'th-list', 'url'=>array('admin'), 'active'=>'true'),
+    array('label'=>'Create User', 'icon'=>'file', 'url'=>array('create')),
+    array('label'=>'PROFILE FIELDS'),
+    array('label'=>'Profile Field Manager', 'icon'=>'cog', 'url'=>array('profileField/admin')),
+);
 ?>
+<h2><?php echo UserModule::t("Manage Users"); ?></h2>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
+    'type'=>'striped bordered condensed',
 	'dataProvider'=>$dataProvider,
 	'columns'=>array(
 		array(
@@ -48,7 +50,8 @@ $this->breadcrumbs=array(
 			'value'=>'User::itemAlias("AdminStatus",$data->superuser)',
 		),
 		array(
-			'class'=>'CButtonColumn',
-		),
+            'class'=>'bootstrap.widgets.BootButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+        ),
 	),
 )); ?>

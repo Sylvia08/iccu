@@ -1,55 +1,107 @@
 <?php
 $this->breadcrumbs=array(
-	'Term Taxonomies'=>array('index'),
-	'Manage',
+	'Category Manager'
 );
 
 $this->menu=array(
-	array('label'=>'List TermTaxonomy', 'url'=>array('index')),
-	array('label'=>'Create TermTaxonomy', 'url'=>array('create')),
+    array('label'=>'OPERATIONS'),
+    array('label'=>'Create Category', 'icon'=>'pencil', 'url'=>array('create'), 
+          'linkOptions'=>array('onclick'=>'openModal($(this).attr("href"),"categoryModal", "Create Category"); return false;')),
 );
-
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('term-taxonomy-grid', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
 ?>
 
-<h1>Manage Term Taxonomies</h1>
+<h2>Manage Categories</h2>
+<?php
+    Yii::app()->clientScript->registerScript(
+       'myHideEffect',
+       '$(".alert").animate({opacity: 1.0}, 5000).fadeOut("slow");',
+       CClientScript::POS_READY
+    );
+?>
+<?php $this->widget('bootstrap.widgets.BootAlert'); ?>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
+    'type'=>'striped bordered condensed',
+    'dataProvider'=>$model->search(),
+    'filter'=>$model,
+    'columns'=>array(
+        array('name'=>'term_taxonomy_id', 'header'=>'#', 'htmlOptions'=>array('style'=>'width: 50px')),
+        array('name'=>'taxonomy', 'header'=>'Category'),
+        array('name'=>'description', 'header'=>'Description'),
+        array('name'=>'parent', 'header'=>'Parent ID', 'htmlOptions'=>array('style'=>'width: 50px')),
+        array(
+            'class'=>'bootstrap.widgets.BootButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+            'template'=>'{update}{delete}',
+            'buttons'=>array
+            (
+                'update' => array
+                (
+                    'click'=>'function(){openModal($(this).attr("href"),"categoryModal", "Update Category"); return false;}',
+                )
+            ),
+        ),
+    ),
 )); ?>
-</div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'term-taxonomy-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'term_taxonomy_id',
-		'term_id',
-		'taxonomy',
-		'description',
-		'parent',
-		'count',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+<?php $this->beginWidget('bootstrap.widgets.BootModal', array('id'=>'categoryModal')); ?>
+<div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h3 id="modal-title">Modal Title</h3>
+</div>
+ 
+<div class="modal-body">
+    <?php echo $this->renderPartial('_ajaxform', array('model'=>$model)); ?>
+</div>
+ 
+<div class="modal-footer">
+    <?php $this->widget('bootstrap.widgets.BootButton', array(
+        'type'=>'primary',
+        'label'=>'Create',
+        'url'=>'#',
+        'htmlOptions'=>array('id'=>'cModalSubmit'),
+    )); ?>
+    <?php $this->widget('bootstrap.widgets.BootButton', array(
+        'label'=>'Close',
+        'url'=>'#',
+        'htmlOptions'=>array('data-dismiss'=>'modal'),
+    )); ?>
+</div>
+<?php $this->endWidget(); ?><!--Category Modal--> 
+
+<script type="text/javascript">
+function sendAjaxRequest(url, request_type, modalId)
+{
+	jQuery.ajax({
+        'url': url,
+        'data': $('#'+modalId+' div.modal-body form').serialize(),
+        'type': request_type,
+        'dataType': 'json',
+        'success': function(data)
+                   {
+                       if (data.status == 'failure')
+                       {
+                           $('#'+modalId+' div.modal-body').html(data.div);
+                           // Here is the trick: on submit-> once again this function!
+                           $('#'+modalId+' div.modal-body form').submit(modalId);
+                       }
+                       else
+                       {
+                           $('#'+modalId+' div.modal-body').html(data.div);
+                           location.reload(true);
+                       }
+                   }
+    });
+    return false;
+}
+
+function openModal(url, modalId, modalTitle)
+{
+	sendAjaxRequest(url, 'get', modalId);
+	$('#modal-title').html(modalTitle);
+	$('#cModalSubmit').html(modalTitle=="Update Category"?"Save changes":"Create");
+	$('#cModalSubmit').click(function(){sendAjaxRequest(url, 'post', modalId);});
+    $('#'+modalId).modal();
+    return false;
+} 
+</script>

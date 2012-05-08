@@ -3,7 +3,7 @@
 class AdminController extends Controller
 {
 	public $defaultAction = 'admin';
-	
+	public $layout='//layouts/column_short';
 	private $_model;
 
 	/**
@@ -11,9 +11,10 @@ class AdminController extends Controller
 	 */
 	public function filters()
 	{
-		return CMap::mergeArray(parent::filters(),array(
-			'accessControl', // perform access control for CRUD operations
-		));
+// 		return CMap::mergeArray(parent::filters(),array(
+// 			'accessControl', // perform access control for CRUD operations
+// 		));
+	    return array('rights');
 	}
 	/**
 	 * Specifies the access control rules.

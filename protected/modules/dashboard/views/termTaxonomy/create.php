@@ -1,15 +1,16 @@
 <?php
 $this->breadcrumbs=array(
-	'Term Taxonomies'=>array('index'),
+	'Category Manager'=>array('admin'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List TermTaxonomy', 'url'=>array('index')),
-	array('label'=>'Manage TermTaxonomy', 'url'=>array('admin')),
+	array('label'=>'OPERATIONS'),
+	array('label'=>'Manage Categories', 'icon'=>'cog', 'url'=>array('admin')),
+    array('label'=>'Create Category', 'icon'=>'pencil', 'url'=>'#', 'active'=>true),
 );
 ?>
 
-<h1>Create TermTaxonomy</h1>
+<h2>Create Category</h2>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

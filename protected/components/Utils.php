@@ -5,16 +5,15 @@
 
 class Utils
 {
-	
 	public static function getBaseUrl() {
 		return Yii::app()->request->baseUrl;
 	}
-
-	/**
-	 * @return Return physical path of Web Root
-	 */
-
-	
-	
-	
+	public static function getPostStatus()
+	{
+		return array(
+			0=>'Draft',
+			1=>'Publish',
+			2=>'Pending',	
+		);
+	}
 }

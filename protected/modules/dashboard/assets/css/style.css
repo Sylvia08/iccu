@@ -1,0 +1,24 @@
+h1
+{
+	margin-bottom: 15px;	
+}
+.iconwraper
+{
+	text-align: center;
+	padding: 20px 0 30px 0;
+	margin-bottom: 10px;
+	font-size: 90%;
+}
+a.iconwraper:hover
+{
+	text-decoration: none;
+}
+.underconstruction
+{
+	color: #1d1e1b;
+}
+a.thumbnail.underconstruction:hover
+{	
+	color: #1d1e1b;
+	border-color: #DDD;
+} 

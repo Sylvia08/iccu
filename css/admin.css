@@ -1,0 +1,25 @@
+body 
+{
+	padding-top: 60px;
+}
+.navbar .brand 
+{
+	color: white;
+}
+#footer
+{
+	margin-top: 45px;
+	padding: 35px 0 36px;
+	border-top: 1px solid #E5E5E5;
+	text-align: center;
+	font-size: 80%;
+}
+#footer a:hover
+{
+	color: #005580;
+	text-decoration: underline;
+}
+.hint
+{
+	font-style: italic;	
+}

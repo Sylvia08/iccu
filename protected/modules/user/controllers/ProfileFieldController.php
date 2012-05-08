@@ -2,7 +2,7 @@
 
 class ProfileFieldController extends Controller
 {
-
+    public $layout='//layouts/column_short';
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
@@ -15,9 +15,10 @@ class ProfileFieldController extends Controller
 	 */
 	public function filters()
 	{
-		return CMap::mergeArray(parent::filters(),array(
-			'accessControl', // perform access control for CRUD operations
-		));
+// 		return CMap::mergeArray(parent::filters(),array(
+// 			'accessControl', // perform access control for CRUD operations
+// 		));
+		return array('rights');
 	}
 
 	/**

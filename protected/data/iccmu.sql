@@ -183,27 +183,6 @@ CREATE TABLE IF NOT EXISTS `links` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `options`
---
-
-CREATE TABLE IF NOT EXISTS `options` (
-  `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `blog_id` int(11) NOT NULL DEFAULT '0',
-  `option_name` varchar(64) NOT NULL DEFAULT '',
-  `option_value` longtext NOT NULL,
-  `autoload` varchar(20) NOT NULL DEFAULT 'yes',
-  PRIMARY KEY (`option_id`),
-  UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=126 ;
-
---
--- Dumping data for table `options`
---
-
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `postmeta`
 --
 

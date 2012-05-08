@@ -53,6 +53,7 @@ class Terms extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		    'taxonomies'=>array(self::HAS_MANY, 'TermTaxonomy', 'term_id'),
 		);
 	}
 

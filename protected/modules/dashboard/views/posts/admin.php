@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Posts'=>array('index'),
-	'Manage',
+	'Post Manager',
 );
 
 $this->menu=array(
-	array('label'=>'List Posts', 'url'=>array('index')),
-	array('label'=>'Create Posts', 'url'=>array('create')),
+	array('label'=>'OPERATIONS'),
+    array('label'=>'Manage Posts', 'icon'=>'th-list', 'url'=>array('admin'), 'active'=>'true'),
+    array('label'=>'Create Post', 'icon'=>'file', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -23,12 +23,16 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Posts</h1>
+<h2>Manage Posts</h2>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<?php
+    Yii::app()->clientScript->registerScript(
+       'myHideEffect',
+       '$(".alert").animate({opacity: 1.0}, 5000).fadeOut("slow");',
+       CClientScript::POS_READY
+    );
+?>
+<?php $this->widget('bootstrap.widgets.BootAlert'); ?>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -36,39 +40,21 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'model'=>$model,
 )); ?>
 </div><!-- search-form -->
-
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'posts-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'ID',
-		'post_author',
-		'post_date',
-		'post_date_gmt',
-		'post_content',
-		'post_title',
-		/*
-		'post_excerpt',
-		'post_status',
-		'comment_status',
-		'ping_status',
-		'post_password',
-		'post_name',
-		'to_ping',
-		'pinged',
-		'post_modified',
-		'post_modified_gmt',
-		'post_content_filtered',
-		'post_parent',
-		'guid',
-		'menu_order',
-		'post_type',
-		'post_mime_type',
-		'comment_count',
-		*/
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
+    'type'=>'striped bordered condensed',
+    'dataProvider'=>$model->search(),
+    'filter'=>$model,
+    'columns'=>array(
+        array('name'=>'ID', 'header'=>'#', 'htmlOptions'=>array('style'=>'width: 50px')),
+        array('name'=>'post_title', 'header'=>'Title'),
+        array('name'=>'post_status', 'header'=>'Status'),
+        array('name'=>'author', 'value'=>'$data->author->username'),
+        array('name'=>'category', 'header'=>'Category', 'value'=>'$data->category'),
+        array(
+            'class'=>'bootstrap.widgets.BootButtonColumn',
+            'htmlOptions'=>array('style'=>'width: 50px'),
+        ),
+    ),
 )); ?>
+
+<?php print_r ($data->taxonomies[0]);?>

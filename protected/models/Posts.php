@@ -30,6 +30,10 @@
  */
 class Posts extends CActiveRecord
 {
+    public function behaviors(){
+        return array( 'CAdvancedArBehavior' => array(
+            'class' => 'application.extensions.CAdvancedArBehavior'));
+    }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -56,16 +60,14 @@ class Posts extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('post_content, post_title, post_excerpt, to_ping, pinged, post_content_filtered', 'required'),
-			array('menu_order', 'numerical', 'integerOnly'=>true),
-			array('post_author, post_status, comment_status, ping_status, post_password, post_parent, post_type, comment_count', 'length', 'max'=>20),
+			array('post_author,post_content, post_title, post_excerpt,post_status', 'required'),
+			//array('menu_order', 'numerical', 'integerOnly'=>true),
+			array('post_author, post_status', 'length', 'max'=>20),
 			array('post_name', 'length', 'max'=>200),
-			array('guid', 'length', 'max'=>255),
-			array('post_mime_type', 'length', 'max'=>100),
-			array('post_date, post_date_gmt, post_modified, post_modified_gmt', 'safe'),
+			array('post_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count', 'safe', 'on'=>'search'),
+			array('ID, author, post_date, category, post_title, post_status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +79,9 @@ class Posts extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+           'author'=>array(self::BELONGS_TO, 'User', 'post_author'),
+           'comments'=>array(self::HAS_MANY, 'Comments', 'comment_post_ID'),
+           'taxonomies'=>array(self::MANY_MANY, 'TermTaxonomy', 'term_relationships(object_id, term_taxonomy_id)')
 		);
 	}
 
@@ -90,10 +95,10 @@ class Posts extends CActiveRecord
 			'post_author' => 'Post Author',
 			'post_date' => 'Post Date',
 			'post_date_gmt' => 'Post Date Gmt',
-			'post_content' => 'Post Content',
-			'post_title' => 'Post Title',
-			'post_excerpt' => 'Post Excerpt',
-			'post_status' => 'Post Status',
+			'post_content' => 'Content',
+			'post_title' => 'Title',
+			'post_excerpt' => 'Excerpt',
+			'post_status' => 'Status',
 			'comment_status' => 'Comment Status',
 			'ping_status' => 'Ping Status',
 			'post_password' => 'Post Password',
@@ -109,6 +114,8 @@ class Posts extends CActiveRecord
 			'post_type' => 'Post Type',
 			'post_mime_type' => 'Post Mime Type',
 			'comment_count' => 'Comment Count',
+		    'taxonomies' => 'Category',
+		    'author' => 'Author',
 		);
 	}
 
@@ -122,7 +129,8 @@ class Posts extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with = array('author', 'taxonomies');
+		
 		$criteria->compare('ID',$this->ID,true);
 		$criteria->compare('post_author',$this->post_author,true);
 		$criteria->compare('post_date',$this->post_date,true);
@@ -146,9 +154,36 @@ class Posts extends CActiveRecord
 		$criteria->compare('post_type',$this->post_type,true);
 		$criteria->compare('post_mime_type',$this->post_mime_type,true);
 		$criteria->compare('comment_count',$this->comment_count,true);
-
+        $criteria->compare('category', $this->category, true);
+        $criteria->compare('author', $this->author, true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+		    'sort'=>array(
+		        'defaultOrder' => 'post_date DESC',
+    		    'attributes'=>array(
+    		        'author'=>array(
+    		            'asc'=>'author.username',
+    		            'desc'=>'author.username DESC',
+  		            ),
+    		      //TODO: sort by category
+//        		        'category'=>array(
+//        		            'asc'=>'category',
+//        		            'desc'=>'category DESC',
+//        		        ),
+		            '*',
+    		    )
+		    )
 		));
+	}
+	
+	public function getAuthor()
+	{
+	    return User::model()->findByPk($this->post_author)->username;
+	}
+	
+	public function getCategory()
+	{
+	    //TODO: rewrite
+	    return $this->taxonomies[0]->taxonomy;
 	}
 }

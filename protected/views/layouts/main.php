@@ -76,10 +76,10 @@
 
 	<div id="footer">
 		<div id="flogo" style="float:left;padding-left:15px;"> <img src="<?php echo $baseUrl?>/images/iccmulogo.png" style="margin-bottom:10px;"/>
-			<p>Copyright 2012 &copy ICCMU. <br/> All Rights Reserved.</p>
+			<p>Copyright 2012 &copy; ICCMU. <br/> All Rights Reserved.</p>
 		</div>
 		<div id="fcontent"> 
-			<p>Copyright 2012 &copy ICCMU. <br/> All Rights Reserved.</p>
+			<p>Copyright 2012 &copy; ICCMU. <br/> All Rights Reserved.</p>
 		</div>
 	</div><!-- footer -->
 
