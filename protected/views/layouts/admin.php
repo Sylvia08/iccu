@@ -27,7 +27,7 @@
                                array('label'=>'User Manager', 'url'=>array('/user/admin')),
                                array('label'=>'Right Manager', 'url'=>array('/rights'))
                             ), 'active'=>$module=='user'||$module=='rights'?true:false),  
-                            array('label'=>'Menus', 'url'=>array('/dashboard/menus'), 'active'=>$module=='dashboard'&&$controller=='menus'?true:false),
+                            array('label'=>'Menus', 'url'=>array('/dashboard/menuadjacency'), 'active'=>$module=='dashboard'&&$controller=='menuadjacency'?true:false),
                             array('label'=>'Content', 'url'=>'#', 'items'=>array(
                                 array('label'=>'Post Manager', 'url'=>array('/dashboard/posts/admin')),
                                 array('label'=>'Category Manager', 'url'=>array('/dashboard/termtaxonomy/admin')),

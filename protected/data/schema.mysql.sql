@@ -219,3 +219,22 @@ CREATE TABLE `terms` (
   KEY `name` (`name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `menu_adjacency`
+--
+
+CREATE TABLE IF NOT EXISTS `menu_adjacency` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `title` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `position` int(2) NOT NULL,
+  `tooltip` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `visible` int(1) NOT NULL,
+  `task` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `options` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_parent` (`parent_id`),
+  KEY `task` (`task`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=36 ;

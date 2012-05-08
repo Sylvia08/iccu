@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.2.0.1
+-- version 3.3.9
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 05, 2012 at 04:15 PM
--- Server version: 5.1.37
--- PHP Version: 5.3.0
+-- Generation Time: May 08, 2012 at 04:37 PM
+-- Server version: 5.5.8
+-- PHP Version: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `authassignment` (
 INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 ('Admin', 'admin', NULL, 'N;'),
 ('Admin', '1', NULL, 'N;'),
-('dashboard access', '1', NULL, 'N;');
+('Guest', '3', NULL, 'N;'),
+('Authenticated', '2', NULL, 'N;');
 
 -- --------------------------------------------------------
 
@@ -69,8 +70,25 @@ INSERT INTO `authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('create post', 0, 'create new posts', NULL, 'N;'),
 ('view post', 0, 'view post', NULL, 'N;'),
 ('delete post', 0, 'delete post', NULL, 'N;'),
-('post management', 1, 'CRUD', NULL, 'N;'),
-('update post', 0, 'update', NULL, 'N;');
+('post management', 1, 'post management', NULL, 'N;'),
+('update post', 0, 'update post', NULL, 'N;'),
+('create user', 0, 'create new user', NULL, 'N;'),
+('update user', 0, 'update an user account', NULL, 'N;'),
+('delete user', 0, 'remove an user from system', NULL, 'N;'),
+('view user', 0, 'view an user''s information', NULL, 'N;'),
+('user management', 1, 'user management task: create, update, delete', NULL, 'N;'),
+('list user', 0, 'list all users', NULL, 'N;'),
+('list post', 0, 'list all posts', NULL, 'N;'),
+('User.User.Index', 0, NULL, NULL, 'N;'),
+('User.Admin.*', 1, NULL, NULL, 'N;'),
+('User.Default.*', 1, NULL, NULL, 'N;'),
+('User.User.*', 1, NULL, NULL, 'N;'),
+('User.Admin.Admin', 0, NULL, NULL, 'N;'),
+('User.Admin.View', 0, NULL, NULL, 'N;'),
+('User.Admin.Create', 0, NULL, NULL, 'N;'),
+('User.Admin.Update', 0, NULL, NULL, 'N;'),
+('User.Admin.Delete', 0, NULL, NULL, 'N;'),
+('User.User.View', 0, NULL, NULL, 'N;');
 
 -- --------------------------------------------------------
 
@@ -92,8 +110,14 @@ CREATE TABLE IF NOT EXISTS `authitemchild` (
 INSERT INTO `authitemchild` (`parent`, `child`) VALUES
 ('post management', 'create post'),
 ('post management', 'delete post'),
+('post management', 'list post'),
 ('post management', 'update post'),
-('post management', 'view post');
+('post management', 'view post'),
+('user management', 'create user'),
+('user management', 'delete user'),
+('user management', 'list user'),
+('user management', 'update user'),
+('user management', 'view user');
 
 -- --------------------------------------------------------
 
@@ -183,6 +207,35 @@ CREATE TABLE IF NOT EXISTS `links` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `menu_adjacency`
+--
+
+CREATE TABLE IF NOT EXISTS `menu_adjacency` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) DEFAULT NULL,
+  `title` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `position` int(2) NOT NULL,
+  `tooltip` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `visible` int(1) NOT NULL,
+  `task` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `options` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_parent` (`parent_id`),
+  KEY `task` (`task`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=40 ;
+
+--
+-- Dumping data for table `menu_adjacency`
+--
+
+INSERT INTO `menu_adjacency` (`id`, `parent_id`, `title`, `position`, `tooltip`, `url`, `visible`, `task`, `options`) VALUES
+(36, NULL, 'Home', 0, 'Home', '/', 1, '', ''),
+(39, NULL, 'About', 0, '', 'posts/about', 1, '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `postmeta`
 --
 
@@ -236,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `posts`
@@ -263,7 +316,8 @@ CREATE TABLE IF NOT EXISTS `profiles` (
 
 INSERT INTO `profiles` (`user_id`, `lastname`, `firstname`, `birthday`) VALUES
 (1, 'Admin', 'Administrator', '0000-00-00'),
-(2, 'Demo', 'Demo', '0000-00-00');
+(2, 'Demo', 'Demo', '0000-00-00'),
+(3, 'quach', 'nathan', '1987-08-14');
 
 -- --------------------------------------------------------
 
@@ -333,12 +387,15 @@ CREATE TABLE IF NOT EXISTS `terms` (
   PRIMARY KEY (`term_id`),
   UNIQUE KEY `slug` (`slug`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `terms`
 --
 
+INSERT INTO `terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
+(3, 'category', 'category', 1),
+(4, 'tag', 'tag', 2);
 
 -- --------------------------------------------------------
 
@@ -375,12 +432,14 @@ CREATE TABLE IF NOT EXISTS `term_taxonomy` (
   PRIMARY KEY (`term_taxonomy_id`),
   UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
   KEY `taxonomy` (`taxonomy`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `term_taxonomy`
 --
 
+INSERT INTO `term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
+(10, 3, 'Page', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -403,16 +462,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `email` (`email`),
   KEY `status` (`status`),
   KEY `superuser` (`superuser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `activkey`, `createtime`, `lastvisit`, `superuser`, `status`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336198211, 1, 1),
-(2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 1336198162, 0, 1);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336484984, 1, 1),
+(2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 1336484975, 0, 1),
+(3, 'nathan', 'e99a18c428cb38d5f260853678922e03', 'nghiaqh@gmail.com', 'd47aeb895354314c9b9fc277f4fd7337', 1336272436, 1336484962, 0, 1);

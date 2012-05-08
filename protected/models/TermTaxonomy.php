@@ -46,7 +46,7 @@ class TermTaxonomy extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('taxonomy', 'required'),
-		    array('description', 'safe'),
+		    array('description, parent', 'safe'),
 			array('taxonomy', 'length', 'max'=>32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

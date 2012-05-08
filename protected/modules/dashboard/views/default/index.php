@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="span2">
-                <a href="<?php echo Yii::app()->createUrl('/dashboard/menus/admin');?>" class="thumbnail iconwraper" rel="tooltip" data-title="Manage menus">
+                <a href="<?php echo Yii::app()->createUrl('/dashboard/menuadjacency/admin');?>" class="thumbnail iconwraper" rel="tooltip" data-title="Manage menus">
                     <?php echo CHtml::image(Yii::app()->controller->module->registerImage('icon-48-menumgr.png'), "");?>
                     Menu Manager
                 </a>
