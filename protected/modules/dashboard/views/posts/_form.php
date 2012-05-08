@@ -8,11 +8,11 @@
 
 	<?php $this->widget('bootstrap.widgets.BootAlert'); ?>
 
-    <?php echo $form->textFieldRow($model, 'post_title', array('size'=>160, 'class'=>'span12')); ?>
+    <?php echo $form->textFieldRow($model, 'post_title', array('class'=>'span12')); ?>
 	<?php echo $form->textAreaRow($model, 'post_excerpt', array('rows'=>4, 'class'=>'span12')); ?>
     <?php echo $form->dropDownListRow($model, 'taxonomies', TermTaxonomy::items('category')); ?>
     <?php echo $form->labelEx($model,'post_content'); ?>
-	<?php $this->widget('application.extensions.ckeditor.CKEditor', array(
+	<?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
                'model'=>$model,
                'attribute'=>'post_content', // model atribute
                'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
