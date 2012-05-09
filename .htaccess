@@ -6,3 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
 RewriteRule . index.php
+
+AddType application/x-font-woff .woff

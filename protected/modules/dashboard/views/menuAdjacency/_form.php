@@ -14,7 +14,7 @@
     <?php echo $form->textFieldRow($model, 'url'); ?>
 	<?php echo $form->textFieldRow($model, 'task'); ?>
 	<?php echo $form->textFieldRow($model, 'options'); ?>
-    <?php echo $form->dropDownListRow($model, 'parent_id', MenuAdjacency::items(), array('prompt'=>'Select')); ?>
+    <?php echo $form->dropDownListRow($model, 'parent_id', MenuAdjacency::items($model->title), array('prompt'=>'Select')); ?>
     <?php echo $form->checkboxRow($model, 'visible'); ?>
     <br/>
 	<?php $this->widget('bootstrap.widgets.BootButton', array('buttonType'=>'submit', 'icon'=>'ok', 'label'=>'Save')); ?>

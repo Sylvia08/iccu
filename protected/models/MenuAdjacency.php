@@ -63,6 +63,8 @@ class MenuAdjacency extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		  'getParent'=>array(self::BELONGS_TO, 'MenuAdjacency', 'parent_id'),
+		  'children'=>array(self::HAS_MANY, 'MenuAdjacency', 'parent_id')
 		);
 	}
 
@@ -114,10 +116,17 @@ class MenuAdjacency extends CActiveRecord
 	 * Returns the items.
 	 * An empty array is returned if the item type does not exist.
 	 */
-	public static function items()
+	public static function items($exception = null)
 	{
 	 self::$_items = array();
-	 $models=self::model()->findAll();
+	 if(isset($exception))
+    	 $models=self::model()->findAllByAttributes(
+             array(),
+             $condition = 'title != :exception',
+             $params = array(':exception' => $exception)
+         );
+	 else
+	    $models=self::model()->findAll();
 	 foreach($models as $model)
 	     self::$_items[$model->id]=$model->title;
 	 return self::$_items;

@@ -113,18 +113,33 @@ class TermTaxonomy extends CActiveRecord
 	 * @return array item names indexed by item code. The items are order by their position values.
 	 * An empty array is returned if the item type does not exist.
 	 */
-	public static function items($type)
+	public static function items($type, $exception=null)
 	{
     	self::$_items = array();
-    	$models=self::model()->with(array(
-    	    'terms'=>array(
-    	        // we don't want to select terms
-        	    'select'=>false,
-        	    // but want to get only taxonomies are category
-        	    'joinType'=>'INNER JOIN',
-        	    'condition'=>'terms.name="'.$type.'"',
-    	    ),
-    	))->findAll();
+    	if(!isset($exception))
+        	$models=self::model()->with(array(
+        	    'terms'=>array(
+        	        // we don't want to select terms
+            	    'select'=>false,
+            	    // but want to get only taxonomies are category
+            	    'joinType'=>'INNER JOIN',
+            	    'condition'=>'terms.name="'.$type.'"',
+        	    ),
+        	))->findAll();
+    	else 
+        	$models=self::model()->with(array(
+        	    'terms'=>array(
+            	    // we don't want to select terms
+            	    'select'=>false,
+            	    // but want to get only taxonomies are category
+            	    'joinType'=>'INNER JOIN',
+            	    'condition'=>'terms.name="'.$type.'"',
+           	    ),
+        	 ))->findAllByAttributes(
+                     array(),
+                     $condition = 'taxonomy != :exception',
+                     $params = array(':exception' => $exception)
+                 );
     	foreach($models as $model)
     	    self::$_items[$model->term_taxonomy_id]=$model->taxonomy;
     	return self::$_items;

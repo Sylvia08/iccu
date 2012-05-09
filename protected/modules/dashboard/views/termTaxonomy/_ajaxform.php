@@ -9,7 +9,7 @@
 	<?php Yii::app()->user->setFlash('error', $form->errorSummary($model)); ?>
     <?php echo $form->textFieldRow($model, 'taxonomy'); ?>
     <?php echo $form->textAreaRow($model, 'description', array('rows'=>4)); ?>
-    <?php echo $form->dropDownListRow($model, 'parent', TermTaxonomy::items('category'), array('prompt'=>'Select')); ?>
+    <?php echo $form->dropDownListRow($model, 'parent', TermTaxonomy::items('category', $model->taxonomy), array('prompt'=>'Select')); ?>
     <br/>
      
 <?php $this->endWidget(); ?>
