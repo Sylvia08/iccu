@@ -15,7 +15,7 @@ $this->menu=array(
 ?>
 
 <h2>Menu Item #<?php echo $model->id; ?></h2>
-
+    
 <?php $this->widget('bootstrap.widgets.BootDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(

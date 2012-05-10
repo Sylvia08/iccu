@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div class="header">
+<div id="header">
   <div class="container-fluid">
     <div class="logo"><a href="<?php echo Yii::app()->request->baseUrl; ?>">
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/iccmulogo.png" alt="ICCMU Website"/>
@@ -16,69 +16,51 @@
     </div>
     <div class="block-header">
       <ul>
-        <li><a href="#" rel="tooltip" title="Find out about ICCMU">About</a></li>
-        <li><a href="#" rel="tooltip" title="Visit ICCMU forum">Forum</a></li>
-        <li><a href="#" rel="tooltip" title="Particiate in ICCMU wiki">Wiki</a></li>
-        <li><a href="#" rel="tooltip" title="Contact ICCMU">Contact</a></li>
-        <li><a href="user/login" rel="tooltip" title="For ICCMU Members">Login</a></li>
+        <li><a href="<?php echo Yii::app()->request->baseUrl.'/posts/9'; ?>">About</a></li>
+        <li><a href="#">Forum</a></li>
+        <li><a href="#">Wiki</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="<?php echo Yii::app()->request->baseUrl.'/user/login'; ?>">Login</a></li>
       </ul>
     </div>
   </div>
 </div><!-- header -->
-
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-        <?php 
-         $module = Yii::app()->controller->module->id;
-         $controller = Yii::app()->controller->id;
-         $action = $this->action->Id;
-         //TODO: write NestedMenu widget
-         $navitems = array(
-           array('label'=>'Home', 'url'=>Yii::app()->request->baseUrl, 'active'=>$controller=='site'&&$action=='index'?true:false),
-           array('label'=>'For Community', 'items'=>array(
-             array('label'=>'ICU Locations', 'url'=>array()),
-             array('label'=>'Patent Conditions', 'url'=>array()),
-             array('label'=>'Patent & Family', 'url'=>array()),
-             array('label'=>'Visiting in IC', 'url'=>array()),
-           )),
-           array('label'=>'For Clinicians', 'items'=>array(
-             array('label'=>'News', 'url'=>array()),
-             array('label'=>'Seminar & Conference', 'url'=>array()),
-             array('label'=>'Education', 'url'=>array()),
-             array('label'=>'Career', 'url'=>array()),
-             array('label'=>'ICUConnect', 'url'=>array()),
-             array('label'=>'Links', 'url'=>array()),
-             array('label'=>'Research & Quality', 'url'=>array()),
-             array('label'=>'NSW ICU Reporting', 'url'=>array()),
-           )),
-           array('label'=>'Guidelines Libraries', 'items'=>array(
-             array('label'=>'ICCMU Guidelines', 'url'=>array()),
-             array('label'=>'Statewide Guidelines', 'url'=>array()),
-             array('label'=>'Guidelines Index', 'url'=>array()),
-             array('label'=>'Guideline Forum', 'url'=>array()),
-           )),
-         );
-         $this->widget('bootstrap.widgets.BootMenu', array(
-             'items'=>$navitems,
-         ));
-        ?>
-        </div>
-    </div>
-</div>
-
+<?php
+    Yii::app()->clientScript->registerScript(
+       'navbarHoverEffect',
+       '$(".nav > li > a").hover( function(){$(this).tab("show");});',
+       CClientScript::POS_READY
+    );
+?>
+<?php
+    $module = Yii::app()->controller->module->id;
+    $controller = Yii::app()->controller->id;
+    $action = $this->action->Id; 
+    
+    $this->widget('bootstrap.widgets.BootNavbar', array(
+      'fixed'=>false,
+      'collapse'=>true, // requires bootstrap-responsive.css
+      'items'=>array(
+        array(
+          'class'=>'bootstrap.widgets.BootMenu',
+          'items'=>MenuAdjacency::getTree(),
+          'encodeLabel'=>false,
+        ),
+        '<form class="navbar-search pull-right" action=""><input type="text" class="search-query span3" placeholder="Search"></form>',
+      ),
+    ));
+?>
 
 <div id="content-block">
     <div class="container-fluid"> 
     	<?php if(isset($this->breadcrumbs)):?>
     		<?php $this->widget('bootstrap.widgets.BootBreadcrumbs', array(
     			'links'=>$this->breadcrumbs,
-    		    'homeLink' => CHtml::link('Dashboard', Yii::app()->request->baseUrl.'/dashboard'),
     		)); ?><!-- breadcrumbs -->
     	<?php endif?>
         
     	<?php echo $content; ?>
- 
+        
      	<div class="clear"></div>
     </div>
 </div>

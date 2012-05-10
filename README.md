@@ -21,12 +21,12 @@ CONFIGURATION
 
 2. Import database:
 
-   + Create a MySQL database named 'iccu'
-   + Import iccu/iccu.sql to iccu db
+   + Create a MySQL database named 'iccmu'
+   + Import iccu/protected/data/iccmu.sql to iccmu db
    + Update database info in iccu/protected/config/main.php:
 
         'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=iccu',
+			'connectionString' => 'mysql:host=localhost;dbname=iccmu',
 			'emulatePrepare' => true,
 			'username' => 'your MySQL admin account',
 			'password' => 'your password',
@@ -50,3 +50,4 @@ CONFIGURATION
 NOTE
 ================================================================================
 Default site admin account: admin/admin
+Backend url: /dashboard

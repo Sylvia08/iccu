@@ -10,7 +10,7 @@
 
     <?php echo $form->textFieldRow($model, 'post_title', array('class'=>'span12')); ?>
 	<?php echo $form->textAreaRow($model, 'post_excerpt', array('rows'=>4, 'class'=>'span12')); ?>
-    <?php echo $form->dropDownListRow($model, 'taxonomies', TermTaxonomy::items('category')); ?>
+    <?php echo $form->dropDownListRow($model, 'taxonomies', TermTaxonomy::items('category'), array('prompt'=>'-- Select a Category --')); ?>
     <?php echo $form->labelEx($model,'post_content'); ?>
 	<?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
                'model'=>$model,

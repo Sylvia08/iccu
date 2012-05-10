@@ -43,12 +43,12 @@ class MenuAdjacency extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, position, url, visible', 'required'),
+			array('title, position, visible', 'required'),
 			array('parent_id, position, visible', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>25),
+			array('title', 'length', 'max'=>125),
 			array('tooltip, options', 'length', 'max'=>100),
 			array('url', 'length', 'max'=>255),
-			array('task', 'length', 'max'=>64),
+			array('task', 'length', 'max'=>164),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, parent_id, title, position, tooltip, url, visible, task, options', 'safe', 'on'=>'search'),
@@ -63,8 +63,8 @@ class MenuAdjacency extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		  'getParent'=>array(self::BELONGS_TO, 'MenuAdjacency', 'parent_id'),
-		  'children'=>array(self::HAS_MANY, 'MenuAdjacency', 'parent_id')
+		  'parent'=>array(self::BELONGS_TO, 'MenuAdjacency', 'parent_id'),
+		  'children'=>array(self::HAS_MANY, 'MenuAdjacency', 'parent_id', 'order'=>'position ASC')
 		);
 	}
 
@@ -118,17 +118,48 @@ class MenuAdjacency extends CActiveRecord
 	 */
 	public static function items($exception = null)
 	{
-	 self::$_items = array();
-	 if(isset($exception))
-    	 $models=self::model()->findAllByAttributes(
-             array(),
-             $condition = 'title != :exception',
-             $params = array(':exception' => $exception)
-         );
-	 else
-	    $models=self::model()->findAll();
-	 foreach($models as $model)
-	     self::$_items[$model->id]=$model->title;
+    	self::$_items = array();
+    	if(isset($exception))
+        	$models=self::model()->findAllByAttributes(
+                 array(),
+                 $condition = 'title != :exception',
+                 $params = array(':exception' => $exception)
+            );
+    	else
+    	    $models=self::model()->findAll();
+    	foreach($models as $model)
+    	    self::$_items[$model->id]=$model->title;
 	 return self::$_items;
+	}
+	
+	public function getListed() {
+    	$subitems = array();
+    	if($this->children) foreach($this->children as $child) {
+    	    $subitems[] = $child->getListed();
+    	}
+    	$returnarray = array('label' => $this->title, 'url' => $this->url);
+    	if($subitems != array())
+    	    $returnarray = array_merge($returnarray, array('items' => $subitems));
+    	return $returnarray;
+	}
+	
+	public static function getTree() {
+	   $roots = self::model()->findAllByAttributes(array(),
+	              $condition = 'parent_id IS NULL and visible = 1'       
+	            );
+	   foreach($roots as $item){
+	       $subitems = array();
+	       $node = array('label' => Yii::app()->format->raw($item->title), 'url' => Yii::app()->request->BaseUrl.$item->url);
+    	   if($item->children) 
+	           foreach($item->children as $child) {
+    	           $subitems[] = $child->getListed();
+    	       }
+  	       
+           if($subitems != array())
+    	       $returnarray[] = array_merge($node, array('items' => $subitems));
+           else
+               $returnarray[] = $node;
+	   }
+       return $returnarray;
 	}
 }

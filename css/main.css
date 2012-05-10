@@ -1,28 +1,31 @@
-html, body {color: #5F6364; background: url(../images/footer-bg.png)}
+html {background: url(../images/footer-bg.png);}
+body {color: #2D2D2D; background: white;}
 
-#header {margin: 0; padding: 0; border-top: 0px solid #C9E0ED;}
-.logo {float: left; padding: 8px 0 8px 50px;}
-.block-header {float: right; margin: 30px 40px 0px 0px; font-family: MuseoSans-500;}
-.block-header ul {margin-bottom: 18px; margin-left: 0; list-style: none;}
-.block-header ul li {float: left; margin-right: 15px;}
-.block-header ul li a {font-weight: bold; color: #7ECFBC;}
-.block-header ul li a:hover {color: #FDF9DC;}
+#header {margin: 0; padding: 0; background: url(../images/footer-bg.png);}
+#header .logo {float: left; padding: 8px 0 8px 50px;}
+#header .block-header {float: right; margin: 30px 20px 0px 0px; font-family: MuseoSans-500;}
+#header .block-header ul {margin-bottom: 18px; margin-left: 0; list-style: none;}
+#header .block-header ul li {float: left; margin-right: 15px;}
+#header .block-header ul li a {font-weight: bold; color: #7ECFBC;}
+#header .block-header ul li a:hover {color: #FDF9DC;}
 
-.navbar {margin-bottom:0px;}
+.navbar {margin-bottom: 0;}
+ul.nav li.dropdown:hover ul.dropdown-menu {display: block;}
+.navbar-inner {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
 
-#footer {padding: 15px 0px; font-family: MuseoSans-500; font-size: 90%; background: url(../images/footer-bg.png) #202020}
+
+#footer {padding: 15px 0px; font-family: MuseoSans-500; font-size: 90%; color: #5F6364; background: url(../images/footer-bg.png) #202020}
 #footer .copyright {text-align: center; margin-top: 50px; font-size: 95%; color: whitesmoke;}
 #footer ul {list-style: none; margin: 0px;}
-#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {
-	padding: 8px 0px;
-	color: #fff;
-	text-shadow: rgba(255, 255, 255, 0.2) 0 1px 1px;
-	text-transform: uppercase;
-}
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {padding: 8px 0px; color: #fff; text-shadow: rgba(255, 255, 255, 0.2) 0 1px 1px; text-transform: uppercase;}
 #footer a {font-weight: normal; color: #7ECFBC; text-shadow: rgba(0,0,0,0.3) 0 -1px 0;}
 #footer a:hover {color: #FDF9DC;}
 #footer .last {border-right: none;}
 #footerlogo {padding: 8px 0 8px 50px;}
 #copyright {text-align: center;}
 
-#content-block {background-color: white; border-bottom: 5px solid #7ECFBC; border-top: 5px solid #7ECFBC; padding-top: 20px;}
+#content-block {border-bottom: 5px solid #7ECFBC; border-top: 5px solid #7ECFBC; padding-top: 10px;}

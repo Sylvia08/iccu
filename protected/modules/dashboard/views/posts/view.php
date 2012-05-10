@@ -20,10 +20,10 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		array('name'=>'post_author', 'label'=>'Author', 'value'=>User::model()->findByPk($model->post_author)->username),
-		array('name'=>'taxonomies', 'label'=>'Category', 'value'=>$model->taxonomies[0]->taxonomy),
+		array('name'=>'taxonomies', 'label'=>'Category', 'value'=>isset($model->category)?$model->category:""),
 		'post_excerpt',
-		array('name'=>'post_content','type'=>'raw'),
 		'post_status',
 		'post_date',
+    	array('name'=>'post_content','type'=>'raw', 'value'=>$model->post_content),
 	),
 )); ?>

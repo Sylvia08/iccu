@@ -64,11 +64,11 @@ class BootNavbar extends CWidget
 	{
 		if ($this->brand !== false)
 		{
-			if (!isset($this->brand))
-				$this->brand = CHtml::encode(Yii::app()->name);
+// 			if (!isset($this->brand))
+// 				$this->brand = CHtml::encode(Yii::app()->name);
 
-			if (!isset($this->brandUrl))
-				$this->brandUrl = Yii::app()->homeUrl;
+// 			if (!isset($this->brandUrl))
+// 				$this->brandUrl = Yii::app()->homeUrl;
 		}
 	}
 

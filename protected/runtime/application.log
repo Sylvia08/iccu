@@ -259,3 +259,1198 @@ Stack trace:
 REQUEST_URI=/iccu/dashboard/termtaxonomy/update/id/41
 HTTP_REFERER=http://localhost/iccu/dashboard/termtaxonomy/admin
 ---
+2012/05/10 06:38:06 [error] [exception.CException] exception 'CException' with message 'Property "MenuAdjacency.childs" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('childs')
+#1 C:\xampp\htdocs\iccu\protected\models\MenuAdjacency.php(137): CActiveRecord->__get('childs')
+#2 C:\xampp\htdocs\iccu\protected\views\layouts\main.php(83): MenuAdjacency->getListed()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#7 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#10 C:\xampp\htdocs\iccu\protected\views\layouts\column1.php(5): CBaseController->endContent()
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(785): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\iccu\protected\controllers\SiteController.php(32): CController->render('index')
+#15 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('')
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#21 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/iccu/
+HTTP_REFERER=http://localhost/iccu/dashboard/menuadjacency
+---
+2012/05/10 06:39:20 [error] [exception.CException] exception 'CException' with message 'Alias "application.extensions.CDropDownMenu" is invalid. Make sure it points to an existing PHP file.' in C:\xampp\htdocs\yii\framework\YiiBase.php:318
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(147): YiiBase::import('application.ext...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'application.ext...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('application.ext...', Array)
+#3 C:\xampp\htdocs\iccu\protected\views\layouts\main.php(87): CBaseController->widget('application.ext...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#8 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#11 C:\xampp\htdocs\iccu\protected\views\layouts\column1.php(5): CBaseController->endContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\iccu\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/iccu/
+HTTP_REFERER=http://localhost/iccu/dashboard/menuadjacency
+---
+2012/05/10 07:31:42 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\iccu\protected\extensions\bootstrap\widgets\BootMenu.php:171)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): SiteController->createWidget()
+#1 C:\xampp\htdocs\iccu\protected\extensions\bootstrap\widgets\BootNavbar.php(132): SiteController->widget()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootNavbar->run()
+#3 C:\xampp\htdocs\iccu\protected\views\layouts\main.php(60): SiteController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#8 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(301): SiteController->endWidget()
+#11 C:\xampp\htdocs\iccu\protected\views\layouts\column1.php(5): SiteController->endContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): SiteController->renderFile()
+#15 C:\xampp\htdocs\iccu\protected\controllers\SiteController.php(32): SiteController->render()
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(287): SiteController->runAction()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): SiteController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/
+in C:\xampp\htdocs\iccu\protected\extensions\bootstrap\widgets\BootMenu.php (171)
+in C:\xampp\htdocs\iccu\protected\extensions\bootstrap\widgets\BootMenu.php (49)
+in C:\xampp\htdocs\iccu\protected\extensions\bootstrap\widgets\BootNavbar.php (132)
+2012/05/10 07:59:11 [error] [exception.CException] exception 'CException' with message 'Property "BootNavbar.encodeLabel" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(162): CComponent->__set('encodeLabel', false)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\iccu\protected\views\layouts\main.php(47): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#8 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#11 C:\xampp\htdocs\iccu\protected\views\layouts\column1.php(5): CBaseController->endContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(785): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\iccu\protected\controllers\SiteController.php(32): CController->render('index')
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/iccu/
+---
+2012/05/10 09:44:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:48:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:49:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:49:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:50:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:50:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:50:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:56:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:57:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:58:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:58:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:58:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts
+---
+2012/05/10 09:58:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/footer-bg1.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('images/footer-b...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/images/footer-bg1.png
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:53:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-responsive.min.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-responsive.min.css
+HTTP_REFERER=http://localhost/iccu/dashboard/menuadjacency/admin
+---
+2012/05/10 10:53:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-yii.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-yii.css
+HTTP_REFERER=http://localhost/iccu/dashboard/menuadjacency/admin
+---
+2012/05/10 10:56:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-responsive.min.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-responsive.min.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:56:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-yii.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-yii.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:57:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-responsive.min.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-responsive.min.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:57:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-yii.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-yii.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:57:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-yii.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-yii.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:57:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-responsive.min.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-responsive.min.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:58:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-yii.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-yii.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 10:58:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/9de5258e/css/bootstrap-responsive.min.css".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('assets/9de5258e...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/iccu/assets/9de5258e/css/bootstrap-responsive.min.css
+HTTP_REFERER=http://localhost/iccu/posts/admin
+---
+2012/05/10 11:44:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'iccmu.events' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `events`.
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 12:59:27 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 12:59:27 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:00:38 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:00:43 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:00:55 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:00:56 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:00:59 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:01:04 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:01:45 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:01:51 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:01:51 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 13:01:57 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:01:57 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 13:17:30 [warning] [application] Failed to set unsafe attribute "taxonomies" of "Posts".
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (77)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 13:17:30 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 13:19:13 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(30): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (30)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 13:19:26 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 13:20:04 [error] [exception.CException] exception 'CException' with message 'Property "BootDetailView.encodeLabel" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(162): CComponent->__set('encodeLabel', false)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(PostsController), 'bootstrap.widge...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(30): CBaseController->widget('bootstrap.widge...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): CController->render('view', Array)
+#9 [internal function]: PostsController->actionView('9')
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(PostsController), Object(ReflectionMethod), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('dashboard/posts...')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+HTTP_REFERER=http://localhost/iccu/dashboard/posts/update/id/9
+---
+2012/05/10 13:20:16 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 13:39:59 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 14:42:34 [error] [php] preg_split() expects parameter 2 to be string, array given (C:\xampp\htdocs\iccu\protected\modules\rights\components\RightsFilter.php:75)
+Stack trace:
+#0 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(35): RightsFilter->__set()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/posts/9
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RightsFilter.php (75)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (35)
+in C:\xampp\htdocs\iccu\index.php (13)
+2012/05/10 15:17:26 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:34:35 [error] [exception.CException] exception 'CException' with message 'Unknown type "2012-05-09 08:55:49".' in C:\xampp\htdocs\yii\framework\utils\CFormatter.php:106
+Stack trace:
+#0 C:\xampp\htdocs\iccu\protected\views\posts\view.php(14): CFormatter->format('EEE, MMM d, yyy...', '2012-05-09 08:5...')
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#5 C:\xampp\htdocs\iccu\protected\controllers\PostsController.php(34): CController->render('view', Array)
+#6 [internal function]: PostsController->actionView('9')
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(PostsController), Object(ReflectionMethod), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('posts/view')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/iccu/posts/9
+HTTP_REFERER=http://localhost/iccu/
+---
+2012/05/10 15:40:30 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:40:31 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:40:34 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:41:25 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(28): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (28)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:41:38 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(28): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (28)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:43:31 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(28): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (28)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:43:54 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(28): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (28)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:44:09 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:45:32 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(28): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (28)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:46:15 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:50:37 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:50:44 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:50:50 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:51:13 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:51:42 [error] [exception.CException] exception 'CException' with message 'Property "Posts.content" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('content')
+#1 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(27): CActiveRecord->__get('content')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#6 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): CController->render('view', Array)
+#7 [internal function]: PostsController->actionView('9')
+#8 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(PostsController), Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(PostsController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('dashboard/posts...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\iccu\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+HTTP_REFERER=http://localhost/iccu/dashboard/posts/admin
+---
+2012/05/10 15:51:51 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)
+2012/05/10 15:52:04 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\utils\CFormatter.php(104): CFormatter->formatText()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\CDetailView.php(214): CFormatter->format()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(174): BootDetailView->run()
+#3 C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php(29): PostsController->widget()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(127): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(96): PostsController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(870): PostsController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(783): PostsController->renderPartial()
+#8 C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php(29): PostsController->render()
+#9 unknown(0): PostsController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): PostsController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(59): PostsController->filterRights()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(266): PostsController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): PostsController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\iccu\index.php(13): CWebApplication->run()
+REQUEST_URI=/iccu/dashboard/posts/view/id/9
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\views\posts\view.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\dashboard\controllers\PostsController.php (29)
+in C:\xampp\htdocs\iccu\protected\modules\rights\components\RController.php (36)

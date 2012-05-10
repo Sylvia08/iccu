@@ -12,7 +12,8 @@ return array(
 	// preloading 'log' component
 	'preload'=>array(
 	    'log',
-        'bootstrap'
+        'bootstrap',
+	    'less'
 	),
 
 	// autoloading model and component classes
@@ -112,6 +113,14 @@ return array(
     	    'class'=>'ext.bootstrap.components.Bootstrap', // assuming you extracted bootstrap under extensions
    	        'responsiveCss'=>true,
    	    ),
+	  
+    	'less'=>array(
+    	    'class'=>'ext.less.components.LessCompiler',
+    	    'forceCompile'=>false, // indicates whether to force compiling
+    	    'paths'=>array(
+    	      'less/style.less'=>'css/style.css',
+    	    ),
+    	),
 	),
 
 	// application-level parameters that can be accessed
