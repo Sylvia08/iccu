@@ -11,9 +11,9 @@ else
 <div class="row-fluid">
   <h1><?php echo $model->post_title; ?></h1>
   <div class="row-fluid">
-    <div class="post-datetime"><?php echo $model->post_date; ?></div>
+    <div class="post-datetime"><i class="icon-calendar"></i> <?php echo $model->post_date; ?></div>
     <?php if(isset($model->category)): ?>
-    <div class="post-category"><?php echo $model->category; ?></div>
+    <div class="post-category"><i class="icon-tag"></i> <?php echo $model->category; ?></div>
     <?php endif; ?>
   </div>
   <?php echo $model->post_content?>

@@ -31,11 +31,8 @@
        '$(".nav > li > a").hover( function(){$(this).tab("show");});',
        CClientScript::POS_READY
     );
-?>
-<?php
-    $module = Yii::app()->controller->module->id;
-    $controller = Yii::app()->controller->id;
-    $action = $this->action->Id; 
+    
+    $items = MenuAdjacency::getTree();
     
     $this->widget('bootstrap.widgets.BootNavbar', array(
       'fixed'=>false,
@@ -43,7 +40,7 @@
       'items'=>array(
         array(
           'class'=>'bootstrap.widgets.BootMenu',
-          'items'=>MenuAdjacency::getTree(),
+          'items'=>$items,
           'encodeLabel'=>false,
         ),
         '<form class="navbar-search pull-right" action=""><input type="text" class="search-query span3" placeholder="Search"></form>',
@@ -60,7 +57,7 @@
     	<?php endif?>
         
     	<?php echo $content; ?>
-        
+
      	<div class="clear"></div>
     </div>
 </div>
@@ -68,41 +65,32 @@
 <div id="footer">
     <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span2"></div>
-            <div class="span2">
-                <h4>Community</h4>
-                <ul>
-                  <li><a href="#">ICU Locations</a></li>
-                  <li><a href="#">Patent Conditions</a></li>
-                  <li><a href="#">Patent &amp; Family</a></li>
-                  <li><a href="#">Visiting in IC</a></li>
-                </ul>
+            <div class="span3">
+                <h4>The ICCMU Newsletter</h4>
+                <div>Subscribe to our email newsletter for ICU news &amp; events.</div><br/>
+                <form class="form-horizontal">
+                  <fieldset>
+                    <div class="control-group">
+                        <div class="input-append">
+                          <input style="width: 160px;" id="appendedInputButton" size="56" type="text" placeholder="email address"><button class="btn btn-info" type="button">Subscribe</button>
+                        </div>
+                    </div>
+                    
+                  </fieldset>
+                </form>
             </div>
-            <div class="span2">
-                <h4>Clinicians</h4>
-                <ul>
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Seminar &amp; Conference</a></li>
-                  <li><a href="#">Education</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">ICUConnect</a></li>
-                  <li><a href="#">Links</a></li>
-                  <li><a href="#">Research &amp; Quality</a></li>
-                  <li><a href="#">NSW ICU Reporting</a></li>
-                </ul>
-            </div>
-            <div class="span2">
-                <h4>Quick Links</h4>
-                <ul>
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">Forum</a></li>
-                  <li><a href="#">Wiki</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Site Map</a></li>
-                  <li><a href="#">Term &amp; Conditions</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
+            <?php
+                 foreach($items as $item){
+                     if($item['items']){
+                         echo '<div class="span2">';
+                         echo '<h4>'.$item['label'].'</h4><ul>';
+                         foreach($item['items'] as $child){
+                             echo '<li><a href="'.Yii::app()->request->baseUrl.$child['url'].'">'.$child['label'].'</a></li>';
+                         }
+                         echo '</ul></div>';
+                     }
+                 }
+             ?>
             <div class="span3">
                 <h4>Contact Us</h4>
                 <ul>
@@ -111,10 +99,17 @@
                   <li>&nbsp;</li>
                   <li>Level 1, North Block, Nepean Hospital<br/>Derby Street, Kingswood, NSW 2747</li>
                   <li>&nbsp;</li>
-                  <li>Copyright &copy; <?php echo date('Y'); ?> ICCMU.</li>
                 </ul>
             </div>
-            <div class="span1"></div>
+        </div>
+        <div class="copyright row-fluid">
+           <div class="span4">Copyright &copy; <?php echo date('Y'); ?> ICCMU. All Rights Reserved.</div>
+           <div class="span4">
+               <a href="#">Term of Service</a> &middot;
+               <a href="#">Privacy Policy</a> &middot;
+               <a href="#">Site Map</a>
+           </div>
+           <div class="span4">Designed by <a href="http://uws.edu.au">UWS</a> - WE Team.</div>
         </div>
     </div><!-- footer -->
 </div>

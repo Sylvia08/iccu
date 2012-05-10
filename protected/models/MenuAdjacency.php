@@ -149,7 +149,7 @@ class MenuAdjacency extends CActiveRecord
 	            );
 	   foreach($roots as $item){
 	       $subitems = array();
-	       $node = array('label' => Yii::app()->format->raw($item->title), 'url' => Yii::app()->request->BaseUrl.$item->url);
+	       $node = array('label' => Yii::app()->format->raw($item->title), 'url' => $item->url?Yii::app()->request->BaseUrl.$item->url:"#");
     	   if($item->children) 
 	           foreach($item->children as $child) {
     	           $subitems[] = $child->getListed();

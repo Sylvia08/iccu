@@ -17,15 +17,16 @@ ul.nav li.dropdown:hover ul.dropdown-menu {display: block;}
 	border-radius: 0px;
 }
 
-
 #footer {padding: 15px 0px; font-family: MuseoSans-500; font-size: 90%; color: #5F6364; background: url(../images/footer-bg.png) #202020}
-#footer .copyright {text-align: center; margin-top: 50px; font-size: 95%; color: whitesmoke;}
-#footer ul {list-style: none; margin: 0px;}
+#footer ul {list-style: none; margin: 0px auto;}
 #footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6 {padding: 8px 0px; color: #fff; text-shadow: rgba(255, 255, 255, 0.2) 0 1px 1px; text-transform: uppercase;}
 #footer a {font-weight: normal; color: #7ECFBC; text-shadow: rgba(0,0,0,0.3) 0 -1px 0;}
 #footer a:hover {color: #FDF9DC;}
 #footer .last {border-right: none;}
 #footerlogo {padding: 8px 0 8px 50px;}
-#copyright {text-align: center;}
+#footer .copyright {text-align: center; margin-top: 20px; padding: 20px 0px; font-size: 95%; color: whitesmoke; border-top: 1px solid #5F6364;}
+#footer .copyright ul {width:230px;}
+#footer .copyright ul li {float: left; padding: 0 5px;}
+.clear {clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
 
 #content-block {border-bottom: 5px solid #7ECFBC; border-top: 5px solid #7ECFBC; padding-top: 10px;}

@@ -4,11 +4,11 @@
     	<div id="sidebar">
     	<?php
         $this->widget('application.extensions.MTreeView.MTreeView',array(
-            'collapsed'=>true,
+            'collapsed'=>false,
             'animated'=>'fast',
             //---MTreeView options from here
             'table'=>'menu_adjacency',//what table the menu would come from
-            'hierModel'=>'MenuAdjacency',//hierarchy model of the table
+            'hierModel'=>'adjacency',//hierarchy model of the table
             'conditions'=>array('visible=:visible',array(':visible'=>1)),//other conditions if any                                    
             'fields'=>array(//declaration of fields
             'text'=>'title',//no `text` column, use `title` instead
@@ -16,7 +16,6 @@
             'id_parent'=>'parent_id',//no `id_parent` column,use `parent_id` instead
             'task'=>false,
             'icon'=>false,
-            'url'=>array('/menuAdjacency/view',array('id'=>'id'))
             ),
         ));
         ?>
