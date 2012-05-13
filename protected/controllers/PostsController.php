@@ -98,17 +98,20 @@ class PostsController extends Controller
 		return $model;
 	}
     
-	private function createBreadcrumbs($category, $post_title=null)
+	private function createBreadcrumbs($category=null, $post_title=null)
 	{
-        if($post_title){
+	    $brc = array();
+        if($post_title && $category){
             $brc = $category->getUpwardBranch();
             $brc[] = $post_title;
         }
-        else{
+        else if(!$post_title && $category){
             if($category->getParent)
                 $brc = $category->getParent->getUpwardBranch();
             $brc[] = ucwords($category->taxonomy);
-        } 
+        }
+        else if($post_title) 
+            $brc[] = $post_title;
         return $brc;	    
 	}
 }
