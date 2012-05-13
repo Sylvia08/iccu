@@ -1,19 +1,14 @@
-<?php
-$category = $model->category;
-if(isset($category))
-    $this->breadcrumbs=array(
-    	$category=>array('index?category='.$category),
-    	$model->post_title,
-    );
-else 
-    $this->breadcrumbs=array($model->post_title);
-?>
 <div class="row-fluid">
-  <h1><?php echo $model->post_title; ?></h1>
-  <div class="row-fluid">
-    <div class="post-datetime"><i class="icon-calendar"></i> <?php echo $model->post_date; ?></div>
+  <h2><?php echo $model->post_title; ?></h2>
+  <div class="row-fluid post-meta">
+    <span class="post-datetime"><i class="icon-calendar"></i> <?php echo Yii::app()->dateFormatter->formatDateTime($model->post_date,'medium',null); ?></span>
     <?php if(isset($model->category)): ?>
-    <div class="post-category"><i class="icon-tag"></i> <?php echo $model->category; ?></div>
+    <span class="post-category">
+        <i class="icon-tag"></i> 
+        <?php 
+    	    echo CHtml::link($model->category, array('/posts', 'category'=>$model->category)); 
+        ?>
+    </span>
     <?php endif; ?>
   </div>
   <?php echo $model->post_content?>

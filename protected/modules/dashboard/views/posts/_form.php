@@ -12,13 +12,15 @@
 	<?php echo $form->textAreaRow($model, 'post_excerpt', array('rows'=>4, 'class'=>'span12')); ?>
     <?php echo $form->dropDownListRow($model, 'taxonomies', TermTaxonomy::items('category'), array('prompt'=>'-- Select a Category --')); ?>
     <?php echo $form->labelEx($model,'post_content'); ?>
-	<?php $this->widget('application.extensions.extckeditor.ExtCKEditor', array(
-               'model'=>$model,
-               'attribute'=>'post_content', // model atribute
-               'language'=>'en', /* default lang, If not declared the language of the project will be used in case of using multiple languages */
-               'editorTemplate'=>'full', // Toolbar settings (full, basic, advanced)
-       )); ?>
-    <?php echo $form->dropDownListRow($model, 'post_status', Utils::getPostStatus()); ?>
+       
+    <?php $this->widget(
+			'ext.p3extensions.widgets.ckeditor.CKEditor', array(
+			'model' => $model,
+			'attribute' => 'post_content',
+			'options' => is_array(Yii::app()->params['ext.ckeditor.options']) ? Yii::app()->params['ext.ckeditor.options'] : array()
+			)
+		)?>   
+    <?php echo $form->dropDownListRow($model, 'post_status', Posts::getPostStatus()); ?>
     <?php echo $form->textFieldRow($model, 'post_date'); ?>
     <br/>
 	<?php $this->widget('bootstrap.widgets.BootButton', array('buttonType'=>'submit', 'icon'=>'ok', 'label'=>'Save')); ?>

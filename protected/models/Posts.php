@@ -30,6 +30,19 @@
  */
 class Posts extends CActiveRecord
 {
+    const STATUS_DRAFT=0;
+    const STATUS_PUBLISHED=1;
+    const STATUS_ARCHIVED=2;
+    
+    public static function getPostStatus()
+    {
+        return array(
+          0=>'Draft',
+          1=>'Publish',
+          2=>'Archive',
+        );
+    }
+    
     public function behaviors(){
         return array( 'CAdvancedArBehavior' => array(
             'class' => 'application.extensions.CAdvancedArBehavior'));
@@ -176,14 +189,31 @@ class Posts extends CActiveRecord
 		));
 	}
 	
+	/**
+	 * @return string that shows the detail of the post author
+	 */
 	public function getAuthor()
 	{
 	    return User::model()->findByPk($this->post_author)->username;
 	}
 	
+	/**
+	 * @return string that shows the detail of the post category
+	 */
 	public function getCategory()
 	{
 	    //TODO: rewrite
 	    return $this->taxonomies[0]->taxonomy;
+	}
+	
+	/**
+	 * @return string the URL that shows the detail of the post
+	 */
+	public function getUrl()
+	{
+	 return Yii::app()->createUrl('posts/view', array(
+	   'id'=>$this->ID,
+// 	   'title'=>$this->post_title,
+	 ));
 	}
 }

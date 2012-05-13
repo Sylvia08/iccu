@@ -5,7 +5,10 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
-return array(
+return CMap::mergeArray(  
+  require(dirname(__FILE__).'/../modules/p3media/config/main.php'),  
+  
+  array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Intensive Care Coordinator & Monitoring Unit',
 
@@ -24,6 +27,7 @@ return array(
 		'application.modules.rights.components.*',
         'application.modules.user.models.*',
         'application.modules.user.components.*',
+	    'application.modules.dashboard.*',
 	    'application.extensions.CAdvancedArBehavior',
 	),
 
@@ -67,12 +71,13 @@ return array(
         
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-#			'caseSensitive'=>false,
+			'caseSensitive'=>false,
 			'showScriptName'=>false,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+			    'posts/category/<category>'=>'posts/index'
 			),
 		),
 
@@ -128,5 +133,12 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
+	    'ext.ckeditor.options'=>array(
+            'filebrowserWindowWidth' => '800',
+			'filebrowserWindowHeight' => '600',
+            'filebrowserBrowseCreateUrl'		=> array('/p3media/ckeditor'),
+			'filebrowserImageBrowseCreateUrl'	=> array('/p3media/ckeditor/image'),
+			'filebrowserFlashBrowseCreateUrl'	=> array('/p3media/ckeditor/flash'),
+			'filebrowserUploadCreateUrl' => array('/p3media/import/upload')),
 	),
-);
+));

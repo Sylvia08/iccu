@@ -10,6 +10,8 @@
  * @property string $description
  * @property string $parent
  * @property string $count
+ * @property string $excerpt
+ * @property string $feature_order
  */
 class TermTaxonomy extends CActiveRecord
 {
@@ -46,7 +48,7 @@ class TermTaxonomy extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('taxonomy', 'required'),
-		    array('description, parent', 'safe'),
+		    array('description, parent, excerpt, feature_order', 'safe'),
 			array('taxonomy', 'length', 'max'=>32),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -62,8 +64,9 @@ class TermTaxonomy extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		    'terms'=>array(self::BELONGS_TO, 'Terms', 'term_id'),
-		    'parent'=>array(self::BELONGS_TO, 'TermTaxonomy', 'parent'), 
+		    'term'=>array(self::BELONGS_TO, 'Terms', 'term_id'),
+		    'getParent'=>array(self::BELONGS_TO, 'TermTaxonomy', 'parent'),
+		    'children'=>array(self::HAS_MANY, 'TermTaxonomy', 'parent'),
 		    'posts'=>array(self::MANY_MANY, 'Posts', 'term_relationships(object_id, term_taxonomy_id)')
 		);
 	}
@@ -78,8 +81,10 @@ class TermTaxonomy extends CActiveRecord
 			'term_id' => 'Term',
 			'taxonomy' => 'Taxonomy',
 			'description' => 'Description',
+		    'excerpt' => 'Excerpt',
 			'parent' => 'Parent',
 			'count' => 'Count',
+		    'feature_order' => 'Order'
 		);
 	}
 
@@ -97,6 +102,7 @@ class TermTaxonomy extends CActiveRecord
 		$criteria->compare('term_taxonomy_id',$this->term_taxonomy_id,true);
 		$criteria->compare('term_id',$this->term_id,true);
 		$criteria->compare('taxonomy',$this->taxonomy,true);
+		$criteria->compare('excerpt',$this->excerpt,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('parent',$this->parent,true);
 		$criteria->compare('count',$this->count,true);
@@ -118,22 +124,22 @@ class TermTaxonomy extends CActiveRecord
     	self::$_items = array();
     	if(!isset($exception))
         	$models=self::model()->with(array(
-        	    'terms'=>array(
+        	    'term'=>array(
         	        // we don't want to select terms
             	    'select'=>false,
             	    // but want to get only taxonomies are category
             	    'joinType'=>'INNER JOIN',
-            	    'condition'=>'terms.name="'.$type.'"',
+            	    'condition'=>'term.name="'.$type.'"',
         	    ),
         	))->findAll();
     	else 
         	$models=self::model()->with(array(
-        	    'terms'=>array(
+        	    'term'=>array(
             	    // we don't want to select terms
             	    'select'=>false,
             	    // but want to get only taxonomies are category
             	    'joinType'=>'INNER JOIN',
-            	    'condition'=>'terms.name="'.$type.'"',
+            	    'condition'=>'term.name="'.$type.'"',
            	    ),
         	 ))->findAllByAttributes(
                      array(),
@@ -144,5 +150,21 @@ class TermTaxonomy extends CActiveRecord
     	    self::$_items[$model->term_taxonomy_id]=$model->taxonomy;
     	return self::$_items;
 	}
+
+	public static function getItemByName($name)
+	{
+	    $item = self::model()->findByAttributes(array('taxonomy'=>$name));
+	    return $item;
+	}
 	
+	public function getUpwardBranch() {
+	    $tmp = array();
+    	if($this->getParent){
+    	  $tmp = $this->getParent->getUpwardBranch();
+    	}
+    	$returnarray[ucwords($this->taxonomy)] = Yii::app()->createUrl('/posts', array('category'=>$this->taxonomy));
+    	if($tmp != array())
+    	    $returnarray=array_merge($tmp, $returnarray);
+    	return $returnarray;
+	}
 }

@@ -137,7 +137,7 @@ class MenuAdjacency extends CActiveRecord
     	if($this->children) foreach($this->children as $child) {
     	    $subitems[] = $child->getListed();
     	}
-    	$returnarray = array('label' => $this->title, 'url' => $this->url);
+    	$returnarray = array('label' => $this->title, 'url' => Yii::app()->getBaseUrl().$this->url);
     	if($subitems != array())
     	    $returnarray = array_merge($returnarray, array('items' => $subitems));
     	return $returnarray;
@@ -145,11 +145,11 @@ class MenuAdjacency extends CActiveRecord
 	
 	public static function getTree() {
 	   $roots = self::model()->findAllByAttributes(array(),
-	              $condition = 'parent_id IS NULL and visible = 1'       
-	            );
+           $condition = 'parent_id IS NULL and visible = 1'       
+       );
 	   foreach($roots as $item){
 	       $subitems = array();
-	       $node = array('label' => Yii::app()->format->raw($item->title), 'url' => $item->url?Yii::app()->request->BaseUrl.$item->url:"#");
+	       $node = array('label' => Yii::app()->format->raw($item->title), 'url' => $item->url?Yii::app()->getBaseUrl().$item->url:"#");
     	   if($item->children) 
 	           foreach($item->children as $child) {
     	           $subitems[] = $child->getListed();

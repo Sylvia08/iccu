@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/font.css" />
@@ -20,18 +21,17 @@
         <li><a href="#">Forum</a></li>
         <li><a href="#">Wiki</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="<?php echo Yii::app()->request->baseUrl.'/user/login'; ?>">Login</a></li>
+        <?php if(Yii::app()->user->isGuest): ?>
+        <li><?php echo CHtml::link(Yii::app()->getModule('user')->t("Login"), Yii::app()->getModule('user')->loginUrl);?></li>
+        <?php else:?>
+        <li><?php echo CHtml::link(Yii::app()->getModule('user')->t("Logout").' ('.Yii::app()->user->name.')', Yii::app()->getModule('user')->logoutUrl);?></li>
+        <?php endif;?>
       </ul>
     </div>
   </div>
 </div><!-- header -->
+
 <?php
-    Yii::app()->clientScript->registerScript(
-       'navbarHoverEffect',
-       '$(".nav > li > a").hover( function(){$(this).tab("show");});',
-       CClientScript::POS_READY
-    );
-    
     $items = MenuAdjacency::getTree();
     
     $this->widget('bootstrap.widgets.BootNavbar', array(
@@ -85,7 +85,7 @@
                          echo '<div class="span2">';
                          echo '<h4>'.$item['label'].'</h4><ul>';
                          foreach($item['items'] as $child){
-                             echo '<li><a href="'.Yii::app()->request->baseUrl.$child['url'].'">'.$child['label'].'</a></li>';
+                             echo '<li><a href="'.$child['url'].'">'.$child['label'].'</a></li>';
                          }
                          echo '</ul></div>';
                      }
@@ -97,7 +97,7 @@
                   <li><span>Call</span>: +61 (2) 4734-1585</li>
                   <li><span>Email</span>: <a href="mailto: info@intensivecare.hsnet.nsw.gov.au">info@intensivecare.hsnet.nsw.gov.au</a></li>
                   <li>&nbsp;</li>
-                  <li>Level 1, North Block, Nepean Hospital<br/>Derby Street, Kingswood, NSW 2747</li>
+                  <li><address>Level 1, North Block, Nepean Hospital<br/>Derby Street, Kingswood, NSW 2747</address></li>
                   <li>&nbsp;</li>
                 </ul>
             </div>

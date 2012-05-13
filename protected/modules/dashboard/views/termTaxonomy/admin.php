@@ -4,9 +4,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-    array('label'=>'OPERATIONS'),
+    array('label'=>'Category Manager'),
+    array('label'=>'Manage Categories', 'icon'=>'cog', 'url'=>array('admin'), 'active'=>'true'),
     array('label'=>'Create Category', 'icon'=>'pencil', 'url'=>array('create'), 
-          'linkOptions'=>array('onclick'=>'openModal($(this).attr("href"),"categoryModal", "Create Category"); return false;')),
+//           'linkOptions'=>array('onclick'=>'openModal($(this).attr("href"),"categoryModal", "Create Category"); return false;')
+    ),
 );
 ?>
 
@@ -33,43 +35,43 @@ $this->menu=array(
             'class'=>'bootstrap.widgets.BootButtonColumn',
             'htmlOptions'=>array('style'=>'width: 50px'),
             'template'=>'{update}{delete}',
-            'buttons'=>array
-            (
-                'update' => array
-                (
-                    'click'=>'function(){openModal($(this).attr("href"),"categoryModal", "Update Category"); return false;}',
-                )
-            ),
+//             'buttons'=>array
+//             (
+//                 'update' => array
+//                 (
+//                     'click'=>'function(){openModal($(this).attr("href"),"categoryModal", "Update Category"); return false;}',
+//                 )
+//             ),
         ),
     ),
 )); ?>
-
-<?php $this->beginWidget('bootstrap.widgets.BootModal', array('id'=>'categoryModal')); ?>
+<!--
+<?php //$this->beginWidget('bootstrap.widgets.BootModal', array('id'=>'categoryModal')); ?>
 <div class="modal-header">
     <a class="close" data-dismiss="modal">&times;</a>
     <h3 id="modal-title">Modal Title</h3>
 </div>
  
 <div class="modal-body">
-    <?php echo $this->renderPartial('_ajaxform', array('model'=>$model)); ?>
+    <?php //echo $this->renderPartial('_ajaxform', array('model'=>$model)); ?>
 </div>
  
 <div class="modal-footer">
-    <?php $this->widget('bootstrap.widgets.BootButton', array(
+    <?php /* $this->widget('bootstrap.widgets.BootButton', array(
         'type'=>'primary',
         'label'=>'Create',
         'url'=>'#',
         'htmlOptions'=>array('id'=>'cModalSubmit'),
-    )); ?>
-    <?php $this->widget('bootstrap.widgets.BootButton', array(
+    )); 
+    $this->widget('bootstrap.widgets.BootButton', array(
         'label'=>'Close',
         'url'=>'#',
         'htmlOptions'=>array('data-dismiss'=>'modal'),
-    )); ?>
+    )); */ ?>
 </div>
-<?php $this->endWidget(); ?><!--Category Modal--> 
+<?php //$this->endWidget(); ?>Category Modal--> 
 
-<script type="text/javascript">
+<script type="text/javascript">/*
 function sendAjaxRequest(url, request_type, modalId)
 {
 	jQuery.ajax({
@@ -103,5 +105,5 @@ function openModal(url, modalId, modalTitle)
 	$('#cModalSubmit').click(function(){sendAjaxRequest(url, 'post', modalId);});
     $('#'+modalId).modal();
     return false;
-} 
+} */
 </script>

@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'OPERATIONS'),
+	array('label'=>'Category Manager'),
 	array('label'=>'Manage Categories', 'icon'=>'cog', 'url'=>array('admin')),
     array('label'=>'Create Category', 'icon'=>'pencil', 'url'=>'#', 'active'=>true),
 );

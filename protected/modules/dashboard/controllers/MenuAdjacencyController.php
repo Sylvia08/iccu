@@ -43,7 +43,7 @@ class MenuAdjacencyController extends Controller
 		$model=new MenuAdjacency;
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		//$this->performAjaxValidation($model);
 
 		if(isset($_POST['MenuAdjacency']))
 		{
@@ -67,13 +67,13 @@ class MenuAdjacencyController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		//$this->performAjaxValidation($model);
 
 		if(isset($_POST['MenuAdjacency']))
 		{
 			$model->attributes=$_POST['MenuAdjacency'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(

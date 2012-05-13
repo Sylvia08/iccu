@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Menu Manager'=>array('index'),
+	'Menu Manager'=>array('admin'),
 	'Manage',
 );
 

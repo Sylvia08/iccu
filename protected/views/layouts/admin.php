@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin.css" />
 </head>
@@ -32,8 +33,8 @@
                                 array('label'=>'Post Manager', 'url'=>array('/dashboard/posts/admin')),
                                 array('label'=>'Category Manager', 'url'=>array('/dashboard/termtaxonomy/admin')),
                                 '---',
-                                array('label'=>'Media Manager', 'url'=>'#')
-                            ), 'active'=>$module=='dashboard'&&($controller=='posts'||$controller=='termtaxonomy')?true:false),
+                                array('label'=>'Media Manager', 'url'=>array('/p3media'))
+                            ), 'active'=>$module=='dashboard'&&($controller=='posts'||$controller=='termtaxonomy')||$module=='p3media'?true:false),
                         ),
                     ),
                     array(

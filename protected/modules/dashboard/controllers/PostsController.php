@@ -78,7 +78,7 @@ class PostsController extends Controller
 			$model->taxonomies=$_POST['Posts']['taxonomies'];
 			if($model->save()){
 			    Yii::app()->user->setFlash('success', "Post updated!");
-				$this->redirect(array('view','id'=>$model->ID));
+				$this->redirect(array('admin'));
 			}
 		}
 

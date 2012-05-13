@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 08, 2012 at 04:37 PM
+-- Generation Time: May 13, 2012 at 11:36 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -33,16 +33,6 @@ CREATE TABLE IF NOT EXISTS `authassignment` (
   PRIMARY KEY (`itemname`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `authassignment`
---
-
-INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
-('Admin', 'admin', NULL, 'N;'),
-('Admin', '1', NULL, 'N;'),
-('Guest', '3', NULL, 'N;'),
-('Authenticated', '2', NULL, 'N;');
-
 -- --------------------------------------------------------
 
 --
@@ -58,38 +48,6 @@ CREATE TABLE IF NOT EXISTS `authitem` (
   PRIMARY KEY (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `authitem`
---
-
-INSERT INTO `authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
-('Admin', 2, NULL, NULL, 'N;'),
-('Authenticated', 2, NULL, NULL, 'N;'),
-('Guest', 2, NULL, NULL, 'N;'),
-('dashboard access', 0, 'admin dashboard', NULL, 'N;'),
-('create post', 0, 'create new posts', NULL, 'N;'),
-('view post', 0, 'view post', NULL, 'N;'),
-('delete post', 0, 'delete post', NULL, 'N;'),
-('post management', 1, 'post management', NULL, 'N;'),
-('update post', 0, 'update post', NULL, 'N;'),
-('create user', 0, 'create new user', NULL, 'N;'),
-('update user', 0, 'update an user account', NULL, 'N;'),
-('delete user', 0, 'remove an user from system', NULL, 'N;'),
-('view user', 0, 'view an user''s information', NULL, 'N;'),
-('user management', 1, 'user management task: create, update, delete', NULL, 'N;'),
-('list user', 0, 'list all users', NULL, 'N;'),
-('list post', 0, 'list all posts', NULL, 'N;'),
-('User.User.Index', 0, NULL, NULL, 'N;'),
-('User.Admin.*', 1, NULL, NULL, 'N;'),
-('User.Default.*', 1, NULL, NULL, 'N;'),
-('User.User.*', 1, NULL, NULL, 'N;'),
-('User.Admin.Admin', 0, NULL, NULL, 'N;'),
-('User.Admin.View', 0, NULL, NULL, 'N;'),
-('User.Admin.Create', 0, NULL, NULL, 'N;'),
-('User.Admin.Update', 0, NULL, NULL, 'N;'),
-('User.Admin.Delete', 0, NULL, NULL, 'N;'),
-('User.User.View', 0, NULL, NULL, 'N;');
-
 -- --------------------------------------------------------
 
 --
@@ -102,22 +60,6 @@ CREATE TABLE IF NOT EXISTS `authitemchild` (
   PRIMARY KEY (`parent`,`child`),
   KEY `child` (`child`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `authitemchild`
---
-
-INSERT INTO `authitemchild` (`parent`, `child`) VALUES
-('post management', 'create post'),
-('post management', 'delete post'),
-('post management', 'list post'),
-('post management', 'update post'),
-('post management', 'view post'),
-('user management', 'create user'),
-('user management', 'delete user'),
-('user management', 'list user'),
-('user management', 'update user'),
-('user management', 'view user');
 
 -- --------------------------------------------------------
 
@@ -134,11 +76,6 @@ CREATE TABLE IF NOT EXISTS `commentmeta` (
   KEY `comment_id` (`comment_id`),
   KEY `meta_key` (`meta_key`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
---
--- Dumping data for table `commentmeta`
---
-
 
 -- --------------------------------------------------------
 
@@ -170,10 +107,22 @@ CREATE TABLE IF NOT EXISTS `comments` (
   KEY `comment_parent` (`comment_parent`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `comments`
+-- Table structure for table `hospital`
 --
 
+CREATE TABLE IF NOT EXISTS `hospital` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `location_id` int(11) NOT NULL,
+  `contact_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `create_time` datetime NOT NULL,
+  `update_time` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -199,11 +148,6 @@ CREATE TABLE IF NOT EXISTS `links` (
   KEY `link_visible` (`link_visible`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
---
--- Dumping data for table `links`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -223,15 +167,73 @@ CREATE TABLE IF NOT EXISTS `menu_adjacency` (
   PRIMARY KEY (`id`),
   KEY `id_parent` (`parent_id`),
   KEY `task` (`task`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=63 ;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `menu_adjacency`
+-- Table structure for table `migration_module_p3media`
 --
 
-INSERT INTO `menu_adjacency` (`id`, `parent_id`, `title`, `position`, `tooltip`, `url`, `visible`, `task`, `options`) VALUES
-(36, NULL, 'Home', 0, 'Home', '/', 1, '', ''),
-(39, NULL, 'About', 0, '', 'posts/about', 1, '', '');
+CREATE TABLE IF NOT EXISTS `migration_module_p3media` (
+  `version` varchar(255) NOT NULL,
+  `apply_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `p3_media`
+--
+
+CREATE TABLE IF NOT EXISTS `p3_media` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(32) NOT NULL,
+  `description` text,
+  `type` int(11) NOT NULL,
+  `path` varchar(255) DEFAULT NULL,
+  `md5` varchar(32) DEFAULT NULL,
+  `originalName` varchar(128) DEFAULT NULL,
+  `mimeType` varchar(128) DEFAULT NULL,
+  `size` int(11) DEFAULT NULL,
+  `info` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `p3_media_meta`
+--
+
+CREATE TABLE IF NOT EXISTS `p3_media_meta` (
+  `id` int(11) NOT NULL,
+  `status` int(11) DEFAULT NULL,
+  `type` varchar(64) DEFAULT NULL,
+  `language` varchar(8) DEFAULT NULL,
+  `treeParent_id` int(11) DEFAULT NULL,
+  `treePosition` int(11) DEFAULT NULL,
+  `begin` datetime DEFAULT NULL,
+  `end` datetime DEFAULT NULL,
+  `keywords` text,
+  `customData` text,
+  `label` int(11) DEFAULT NULL,
+  `owner` varchar(64) DEFAULT NULL,
+  `checkAccessCreate` varchar(256) DEFAULT NULL,
+  `checkAccessRead` varchar(256) DEFAULT NULL,
+  `checkAccessUpdate` varchar(256) DEFAULT NULL,
+  `checkAccessDelete` varchar(256) DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createdBy` varchar(64) DEFAULT NULL,
+  `modifiedAt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modifiedBy` varchar(64) DEFAULT NULL,
+  `guid` varchar(64) DEFAULT NULL,
+  `ancestor_guid` varchar(64) DEFAULT NULL,
+  `model` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_p3_media_meta_treeParent_id` (`treeParent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -248,11 +250,6 @@ CREATE TABLE IF NOT EXISTS `postmeta` (
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `postmeta`
---
-
 
 -- --------------------------------------------------------
 
@@ -289,12 +286,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- Dumping data for table `posts`
---
-
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 -- --------------------------------------------------------
 
@@ -309,15 +301,6 @@ CREATE TABLE IF NOT EXISTS `profiles` (
   `birthday` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `profiles`
---
-
-INSERT INTO `profiles` (`user_id`, `lastname`, `firstname`, `birthday`) VALUES
-(1, 'Admin', 'Administrator', '0000-00-00'),
-(2, 'Demo', 'Demo', '0000-00-00'),
-(3, 'quach', 'nathan', '1987-08-14');
 
 -- --------------------------------------------------------
 
@@ -346,15 +329,6 @@ CREATE TABLE IF NOT EXISTS `profiles_fields` (
   KEY `varname` (`varname`,`widget`,`visible`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
---
--- Dumping data for table `profiles_fields`
---
-
-INSERT INTO `profiles_fields` (`id`, `varname`, `title`, `field_type`, `field_size`, `field_size_min`, `required`, `match`, `range`, `error_message`, `other_validator`, `default`, `widget`, `widgetparams`, `position`, `visible`) VALUES
-(1, 'lastname', 'Last Name', 'VARCHAR', 50, 3, 1, '', '', 'Incorrect Last Name (length between 3 and 50 characters).', '', '', '', '', 1, 3),
-(2, 'firstname', 'First Name', 'VARCHAR', 50, 3, 1, '', '', 'Incorrect First Name (length between 3 and 50 characters).', '', '', '', '', 0, 3),
-(3, 'birthday', 'Birthday', 'DATE', 0, 0, 2, '', '', '', '', '0000-00-00', 'UWjuidate', '{"ui-theme":"redmond"}', 3, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -367,11 +341,6 @@ CREATE TABLE IF NOT EXISTS `rights` (
   `weight` int(11) NOT NULL,
   PRIMARY KEY (`itemname`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `rights`
---
-
 
 -- --------------------------------------------------------
 
@@ -389,14 +358,6 @@ CREATE TABLE IF NOT EXISTS `terms` (
   KEY `name` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
---
--- Dumping data for table `terms`
---
-
-INSERT INTO `terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
-(3, 'category', 'category', 1),
-(4, 'tag', 'tag', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -411,11 +372,6 @@ CREATE TABLE IF NOT EXISTS `term_relationships` (
   KEY `term_taxonomy_id` (`term_taxonomy_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `term_relationships`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -429,46 +385,20 @@ CREATE TABLE IF NOT EXISTS `term_taxonomy` (
   `description` longtext NOT NULL,
   `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
   `count` bigint(20) NOT NULL DEFAULT '0',
+  `excerpt` text NOT NULL,
+  `feature_order` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`term_taxonomy_id`),
   UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
   KEY `taxonomy` (`taxonomy`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 --
--- Dumping data for table `term_taxonomy`
+-- Constraints for dumped tables
 --
 
-INSERT INTO `term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
-(10, 3, 'Page', '', 0, 0);
-
--- --------------------------------------------------------
-
 --
--- Table structure for table `users`
+-- Constraints for table `p3_media_meta`
 --
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `activkey` varchar(128) NOT NULL DEFAULT '',
-  `createtime` int(10) NOT NULL DEFAULT '0',
-  `lastvisit` int(10) NOT NULL DEFAULT '0',
-  `superuser` int(1) NOT NULL DEFAULT '0',
-  `status` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `email` (`email`),
-  KEY `status` (`status`),
-  KEY `superuser` (`superuser`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `activkey`, `createtime`, `lastvisit`, `superuser`, `status`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'webmaster@example.com', '9a24eff8c15a6a141ece27eb6947da0f', 1261146094, 1336484984, 1, 1),
-(2, 'demo', 'fe01ce2a7fbac8fafaed7c982a04e229', 'demo@example.com', '099f825543f7850cc038b90aaff39fac', 1261146096, 1336484975, 0, 1),
-(3, 'nathan', 'e99a18c428cb38d5f260853678922e03', 'nghiaqh@gmail.com', 'd47aeb895354314c9b9fc277f4fd7337', 1336272436, 1336484962, 0, 1);
+ALTER TABLE `p3_media_meta`
+  ADD CONSTRAINT `fk_p3_media_id` FOREIGN KEY (`id`) REFERENCES `p3_media` (`id`),
+  ADD CONSTRAINT `fk_p3_media_meta_treeParent_id` FOREIGN KEY (`treeParent_id`) REFERENCES `p3_media_meta` (`id`);

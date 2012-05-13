@@ -3,7 +3,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.BootActiveForm', array(
 	'id'=>'menu-adjacency-form',
     'htmlOptions'=>array('class'=>'well'),
-	'enableAjaxValidation'=>true,
+	'enableAjaxValidation'=>false,
 )); ?>
 
 <?php $this->widget('bootstrap.widgets.BootAlert'); ?>

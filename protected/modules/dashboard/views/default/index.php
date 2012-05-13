@@ -71,7 +71,7 @@
                 </a>
             </div>
             <div class="span2">
-                <a href="#" class="thumbnail iconwraper underconstruction" rel="tooltip" data-title="This section is under construction">
+                <a href="<?php echo Yii::app()->createUrl('/p3media');?>" class="thumbnail iconwraper" rel="tooltip" data-title="Media Manager">
                     <?php echo CHtml::image(Yii::app()->controller->module->registerImage('icon-48-media.png'), "");?>
                     Media Manager
                 </a>
