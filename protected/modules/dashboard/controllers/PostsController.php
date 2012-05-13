@@ -36,7 +36,6 @@ class PostsController extends Controller
 	public function actionCreate()
 	{
 		$model=new Posts;
-        $category;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		$user = Yii::app()->user->getId();
@@ -55,8 +54,7 @@ class PostsController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
-		    'category'=>$category
+			'model'=>$model
 		));
 	}
 

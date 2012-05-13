@@ -42,6 +42,7 @@ class PostsController extends Controller
 	 */
 	public function actionIndex($category)
 	{
+	    $use_news_layout=false;
     	$criteria=new CDbCriteria(array(
     	    'condition'=>'post_status='.Posts::STATUS_PUBLISHED,
     	    'with'=>array('taxonomies'=>array('together'=>true, 'jointype'=>'INNER JOIN')),

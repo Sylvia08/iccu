@@ -56,5 +56,3 @@ $('.search-form form').submit(function(){
         ),
     ),
 )); ?>
-
-<?php print_r ($data->taxonomies[0]);?>

@@ -81,7 +81,7 @@
             </div>
             <?php
                  foreach($items as $item){
-                     if($item['items']){
+                     if(array_key_exists('items', $item)){
                          echo '<div class="span2">';
                          echo '<h4>'.$item['label'].'</h4><ul>';
                          foreach($item['items'] as $child){

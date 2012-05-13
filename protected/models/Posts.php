@@ -203,7 +203,9 @@ class Posts extends CActiveRecord
 	public function getCategory()
 	{
 	    //TODO: rewrite
-	    return $this->taxonomies[0]->taxonomy;
+	    if ($this->taxonomies)
+	        return $this->taxonomies[0]->taxonomy;
+	    return null;
 	}
 	
 	/**
